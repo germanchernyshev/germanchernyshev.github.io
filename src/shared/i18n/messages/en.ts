@@ -198,7 +198,7 @@ export const en: DeepStringify<typeof ru> = {
   },
   footer: {
     text: 'Strategy, architecture, team, quality. And no dragon hunters, of course.',
-    cta: 'Message on Telegram',
+    cta: 'Telegram',
     contactsAria: 'Contacts',
   },
   error: {

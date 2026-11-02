@@ -188,7 +188,7 @@ export const ru = {
   },
   footer: {
     text: 'Стратегия, архитектура, команда, качество. И никаких охотников на драконов.',
-    cta: 'Написать в Telegram',
+    cta: 'Telegram',
     contactsAria: 'Контакты',
   },
   error: {

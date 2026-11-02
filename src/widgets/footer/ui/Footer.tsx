@@ -21,38 +21,38 @@ export default function Footer() {
       className="footer"
     >
       <div className="footer__inner">
-        <a
-          href={AUTHOR_TELEGRAM}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer__cta"
-        >
-          <KitIcon name="send" size={KIT_ICON_MD} className="footer__cta-icon" />
-          {t('footer.cta')}
-        </a>
+        <div className="footer__intro">
+          <h2 className="footer__title">{t('common.jobTitle')}</h2>
+          <p className="footer__text">{t('footer.text')}</p>
+        </div>
 
         <nav
           className="footer__channels"
           aria-label={t('footer.contactsAria')}
         >
           <a
-            href={`mailto:${AUTHOR_EMAIL}`}
-            className="footer__text-link"
+            href={AUTHOR_TELEGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__cta"
           >
-            <span className="footer__link-icon">
-              <KitIcon name="mail" size={KIT_ICON_MD} />
-            </span>
+            <KitIcon name="send" size={KIT_ICON_MD} className="footer__cta-icon" />
+            {t('footer.cta')}
+          </a>
+          <a
+            href={`mailto:${AUTHOR_EMAIL}`}
+            className="footer__cta"
+          >
+            <KitIcon name="mail" size={KIT_ICON_MD} className="footer__cta-icon" />
             {t('common.email')}
           </a>
           <a
             href={AUTHOR_GITHUB}
             target="_blank"
             rel="noopener noreferrer"
-            className="footer__text-link"
+            className="footer__cta"
           >
-            <span className="footer__link-icon">
-              <FaGithub size={KIT_ICON_MD} aria-hidden />
-            </span>
+            <FaGithub size={KIT_ICON_MD} aria-hidden className="footer__cta-icon" />
             {t('common.github')}
           </a>
         </nav>

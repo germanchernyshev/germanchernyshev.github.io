@@ -45,6 +45,15 @@
     color: var(--text-secondary);
   }
 
+  &__channels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+  }
+
   &__cta {
     display: inline-flex;
     align-items: center;
@@ -58,10 +67,11 @@
     color: var(--text-primary);
     text-decoration: none;
     text-align: center;
-    background: rgba(218, 211, 148, 0.14);
+    white-space: nowrap;
+    background: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(218, 211, 148, 0.35);
+    border: 1px solid transparent;
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 
     &:hover {
@@ -77,65 +87,9 @@
 
   &__cta-icon {
     flex-shrink: 0;
-  }
-
-  &__channels {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-2) var(--space-4);
-    width: 100%;
-  }
-
-  &__text-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    flex: 0 1 auto;
-    min-height: var(--touch-min);
-    color: var(--text-primary);
-    text-decoration: none;
-    font-weight: 500;
-    padding: var(--space-2) 10px;
-    border-radius: var(--radius-md);
-    border: 1px solid transparent;
-    background: transparent;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    white-space: nowrap;
-
-    &:hover {
-      color: var(--text-primary);
-      opacity: 1;
-      text-decoration: none;
-      text-decoration-color: transparent;
-      transform: translateY(-2px);
-      border-color: rgba(218, 211, 148, 0.55);
-      background: rgba(218, 211, 148, 0.2);
-    }
-  }
-
-  &__link-icon {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
+    display: block;
     color: #fff;
-
-    svg {
-      display: block;
-      color: #fff;
-      fill: currentColor;
-    }
-
-    img {
-      display: block;
-      filter: brightness(0) invert(1);
-    }
+    fill: currentColor;
   }
 
   &__copy {
