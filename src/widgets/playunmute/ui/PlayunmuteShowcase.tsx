@@ -100,10 +100,9 @@ export default function PlayunmuteShowcase({
             <ProgressiveImage
               src={PLAYUNMUTE_PREVIEW}
               alt={t('playunmute.previewAlt')}
-              width={1000}
-              height={400}
+              width={800}
+              height={800}
               className="product-showcase__preview-img"
-              objectFit="cover"
               loading="lazy"
             />
           </div>
