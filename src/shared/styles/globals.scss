@@ -123,20 +123,11 @@ body {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: var(
-        --castle-backdrop,
-        url('../../../public/img/castle.webp')
-      )
-      no-repeat center / cover;
+    background: url('../../../public/img/castle-backdrop.webp') no-repeat center /
+      cover;
     opacity: 0.22;
-    filter: brightness(0.45) contrast(0.9) blur(3px);
-    contain: strict;
     pointer-events: none;
   }
-}
-
-html.castle-backdrop-ready .app::before {
-  filter: none;
 }
 
 button {
