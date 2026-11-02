@@ -28,56 +28,50 @@ export default function DragonAssistant({
     setIsOpen(window.matchMedia(DESKTOP_MIN_WIDTH).matches)
   }, [])
 
-  const closeTip = () => {
-    setIsOpen(false)
-  }
-
-  const openTip = () => {
-    setIsOpen(true)
-  }
-
   const rootClass = ['dragon-guide', className].filter(Boolean).join(' ')
 
   return (
-    <div className={rootClass} data-aos="fade-up">
-      <button
-        type="button"
-        className={`dragon-guide__trigger${isOpen ? '' : ' dragon-guide__trigger--pulse'}`}
-        onClick={isOpen ? closeTip : openTip}
-        aria-expanded={isOpen}
-        aria-controls={`dragon-tip-${tipId}`}
-        aria-label={isOpen ? hideLabel : openLabel}
-        title={isOpen ? undefined : openLabel}
-      >
-        <ProgressiveImage
-          src={publicAsset(icon)}
-          alt=""
-          width={160}
-          height={80}
-          className="dragon-guide__icon"
-          lockAspect={false}
-          aria-hidden
-          loading="lazy"
-        />
-        {!isOpen ? (
-          <span className="dragon-guide__hint" aria-hidden>
-            <HiOutlineInformationCircle size={20} />
-          </span>
-        ) : null}
-      </button>
+    <div className={rootClass}>
+      <div className="dragon-guide__mascot" data-aos="fade-up">
+        <button
+          type="button"
+          className={`dragon-guide__trigger${isOpen ? '' : ' dragon-guide__trigger--pulse'}`}
+          onClick={() => setIsOpen(open => !open)}
+          aria-expanded={isOpen}
+          aria-controls={`dragon-tip-${tipId}`}
+          aria-label={isOpen ? hideLabel : openLabel}
+          title={isOpen ? undefined : openLabel}
+        >
+          <ProgressiveImage
+            src={publicAsset(icon)}
+            alt=""
+            width={160}
+            height={80}
+            className="dragon-guide__icon"
+            lockAspect={false}
+            aria-hidden
+            loading="lazy"
+          />
+          {!isOpen ? (
+            <span className="dragon-guide__hint" aria-hidden>
+              <HiOutlineInformationCircle size={20} />
+            </span>
+          ) : null}
+        </button>
+      </div>
 
       {isOpen ? (
         <div
           id={`dragon-tip-${tipId}`}
           className="dragon-guide__bubble"
-          role="dialog"
+          role="status"
           aria-label={t('dragon.tipDialog')}
         >
           <p className="dragon-guide__text">{text}</p>
           <button
             type="button"
             className="dragon-guide__close"
-            onClick={closeTip}
+            onClick={() => setIsOpen(false)}
           >
             {t('dragon.collapse')}
           </button>
