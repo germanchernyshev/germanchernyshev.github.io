@@ -17,12 +17,10 @@
     max-width: var(--content-max);
     padding: var(--space-card);
     border-radius: var(--radius-xl);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.02)
-    );
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(218, 211, 148, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   &__label {
@@ -63,6 +61,8 @@
     text-decoration: none;
     background: transparent;
     border: 1px solid transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
     padding: 0 var(--space-3);
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
@@ -74,11 +74,7 @@
       opacity: 1;
       transform: translateY(-2px);
       border-color: rgba(218, 211, 148, 0.55);
-      background: linear-gradient(
-        180deg,
-        rgba(218, 211, 148, 0.24),
-        rgba(218, 211, 148, 0.12)
-      );
+      background: rgba(218, 211, 148, 0.2);
     }
   }
 }

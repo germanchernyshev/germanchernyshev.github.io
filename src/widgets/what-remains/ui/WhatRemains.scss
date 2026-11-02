@@ -35,12 +35,10 @@
   &__card {
     padding: var(--space-card-inner);
     border-radius: var(--radius-xl);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.02)
-    );
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -53,11 +51,7 @@
       &:hover {
         transform: translateY(-3px);
         border-color: rgba(218, 211, 148, 0.28);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.03)
-        );
+        background: rgba(255, 255, 255, 0.06);
       }
     }
   }

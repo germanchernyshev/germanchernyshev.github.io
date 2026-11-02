@@ -137,12 +137,10 @@ button {
   border-radius: var(--radius-lg);
   text-align: center;
 
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
@@ -151,11 +149,7 @@ button {
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
     border-color: rgba(255, 255, 255, 0.2);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.08),
-      rgba(255, 255, 255, 0.04)
-    );
+    background: rgba(255, 255, 255, 0.07);
   }
 
   &:active {
@@ -229,6 +223,20 @@ ul {
     top: 16px;
     text-decoration: none;
   }
+}
+
+.metrics__card[data-aos^='fade'][data-aos^='fade'],
+.what-remains__card[data-aos^='fade'][data-aos^='fade'],
+.mentorship__card[data-aos^='fade'][data-aos^='fade'],
+.mentorship__cta[data-aos^='fade'][data-aos^='fade'],
+.product-showcase[data-aos^='fade'][data-aos^='fade'],
+.social-proof__card[data-aos^='fade'][data-aos^='fade'],
+.projects__nda[data-aos^='fade'][data-aos^='fade'],
+.projects__accordion-list[data-aos^='fade'][data-aos^='fade'],
+.skill[data-aos^='fade'][data-aos^='fade'],
+.skills__item[data-aos^='fade'][data-aos^='fade'] {
+  opacity: 1;
+  transition-property: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {

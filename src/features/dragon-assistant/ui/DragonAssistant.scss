@@ -113,11 +113,13 @@
     width: min(240px, calc(100vw - 48px));
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-lg);
-    background: rgba(44, 42, 36, 0.94);
-    border: 1px solid rgba(218, 211, 148, 0.55);
+    background: rgba(28, 26, 22, 0.82);
+    border: 1px solid rgba(218, 211, 148, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow:
-      0 14px 34px rgba(0, 0, 0, 0.5),
-      0 0 22px rgba(218, 211, 148, 0.16);
+      0 16px 36px rgba(0, 0, 0, 0.55),
+      0 0 28px rgba(218, 211, 148, 0.28);
     transform: translate3d(-50%, 0, 0);
     transform-origin: top center;
     isolation: isolate;

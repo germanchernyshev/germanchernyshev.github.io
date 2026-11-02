@@ -26,7 +26,7 @@ export default function Skill({ skill }: SkillProps) {
   return (
     <div
       data-aos="fade-up"
-      className="skills__item bg-white/5 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 transition-colors border border-white/10 h-full"
+      className="skills__item bg-white/5 p-6 rounded-xl backdrop-blur-[10px] hover:bg-white/10 transition-colors border border-white/10 h-full"
     >
       <div className="skills__item-icon mb-4">
         <KitIcon name={iconName} className="skills__item-svg" size={KIT_ICON_LG} />
