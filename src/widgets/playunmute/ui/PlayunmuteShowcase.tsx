@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
 
@@ -97,13 +97,13 @@ export default function PlayunmuteShowcase({
           </ul>
 
           <div className="product-showcase__preview">
-            <Image
+            <ProgressiveImage
               src={PLAYUNMUTE_PREVIEW}
               alt={t('playunmute.previewAlt')}
               width={1000}
               height={400}
               className="product-showcase__preview-img"
-              unoptimized
+              objectFit="cover"
               loading="lazy"
             />
           </div>

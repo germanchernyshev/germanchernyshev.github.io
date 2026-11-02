@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { AUTHOR_PHOTO, WEB_DRAGON_TIPS } from '@/shared/config'
 import DragonAssistant from '@/features/dragon-assistant'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
+import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
 
@@ -15,14 +15,13 @@ export default function Hero() {
     <div id="top" className="hero">
       <div className="hero__stage">
         <div className="hero__brand hero__reveal hero__reveal--1">
-          <Image
+          <ProgressiveImage
             src={publicAsset(AUTHOR_PHOTO)}
             alt={t('meta.authorName')}
             width={160}
             height={160}
             className="hero__photo"
-            quality={75}
-            unoptimized
+            objectFit="cover"
             priority
           />
           <div className="hero__identity">

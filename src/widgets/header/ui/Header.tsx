@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
 
@@ -96,13 +96,12 @@ export default function Navbar() {
             title={t('nav.home')}
             aria-current={activeSection === '' ? 'true' : undefined}
           >
-            <Image
+            <ProgressiveImage
               src={publicAsset('/img/dragon4.png')}
               alt={t('nav.homeAlt')}
               width={80}
               height={80}
               className="nav-img"
-              unoptimized
               priority
             />
           </a>

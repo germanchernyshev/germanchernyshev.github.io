@@ -37,7 +37,7 @@ const DragonFireflies: React.FC<DragonFirefliesProps> = ({ count = 5 }) => {
     const tweens: gsap.core.Tween[] = []
     const nodes = firefliesRef.current.slice(0, count)
 
-    nodes.forEach((firefly) => {
+    nodes.forEach(firefly => {
       if (!firefly) {
         return
       }
@@ -51,15 +51,20 @@ const DragonFireflies: React.FC<DragonFirefliesProps> = ({ count = 5 }) => {
       const initialX = Math.random() * containerRect.width
       const initialY = Math.random() * containerRect.height
 
-      gsap.set(firefly, { x: initialX, y: initialY })
+      gsap.set(firefly, {
+        x: initialX,
+        y: initialY,
+        force3D: true
+      })
 
       const animateFirefly = () => {
         const tween = gsap.to(firefly, {
           x: '+=' + (Math.random() * 100 - 50),
           y: '+=' + (Math.random() * 100 - 50),
-          duration: Math.random() * 2 + 1,
+          duration: Math.random() * 2 + 1.4,
           ease: 'power1.inOut',
-          onComplete: animateFirefly,
+          force3D: true,
+          onComplete: animateFirefly
         })
         tweens.push(tween)
       }
@@ -67,8 +72,19 @@ const DragonFireflies: React.FC<DragonFirefliesProps> = ({ count = 5 }) => {
       animateFirefly()
     })
 
+    const onVisibility = () => {
+      if (document.hidden) {
+        gsap.globalTimeline.pause()
+      } else {
+        gsap.globalTimeline.resume()
+      }
+    }
+
+    document.addEventListener('visibilitychange', onVisibility)
+
     return () => {
-      tweens.forEach((tween) => tween.kill())
+      document.removeEventListener('visibilitychange', onVisibility)
+      tweens.forEach(tween => tween.kill())
       gsap.killTweensOf(nodes.filter(Boolean))
     }
   }, [isEnabled, count])
@@ -81,7 +97,7 @@ const DragonFireflies: React.FC<DragonFirefliesProps> = ({ count = 5 }) => {
     <div className="fireflies-container" aria-hidden>
       {Array.from({ length: count }, (_, index) => (
         <div
-          ref={(el) => {
+          ref={el => {
             firefliesRef.current[index] = el
           }}
           key={index}

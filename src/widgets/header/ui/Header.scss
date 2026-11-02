@@ -73,10 +73,12 @@
     box-sizing: border-box;
     border-radius: var(--radius-lg);
     padding: 6px var(--space-2);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    background: linear-gradient(
+      180deg,
+      rgba(40, 40, 40, 0.94),
+      rgba(28, 28, 28, 0.9)
+    );
     border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     overflow-x: auto;
     overflow-y: hidden;

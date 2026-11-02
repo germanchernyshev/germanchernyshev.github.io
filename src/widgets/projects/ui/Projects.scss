@@ -30,7 +30,12 @@
       min-height: var(--touch-min);
       padding: 0 var(--space-1);
       font-weight: 600;
-      color: var(--primary);
+      color: var(--text-primary);
+
+      &:hover {
+        color: var(--text-primary);
+        text-decoration-color: transparent;
+      }
     }
   }
 
@@ -82,11 +87,13 @@
     min-height: var(--touch-min);
     font-size: clamp(14px, 1.35vw, 16px);
     font-weight: 600;
-    color: var(--primary);
+    color: var(--text-primary);
     text-decoration: none;
 
     &:hover {
+      color: var(--text-primary);
       text-decoration: none;
+      text-decoration-color: transparent;
       opacity: 0.85;
     }
   }

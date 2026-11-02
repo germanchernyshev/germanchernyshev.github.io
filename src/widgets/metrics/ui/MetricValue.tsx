@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 type ParsedMetric =
   | {
@@ -52,7 +52,9 @@ function formatMetric(parsed: ParsedMetric, progress: number): string {
   }
 
   if (parsed.kind === 'range') {
-    const current = Math.round(parsed.from + (parsed.to - parsed.from) * progress)
+    const current = Math.round(
+      parsed.from + (parsed.to - parsed.from) * progress
+    )
     return `${parsed.from}${parsed.joiner}${current}${parsed.suffix}`
   }
 
@@ -62,20 +64,16 @@ function formatMetric(parsed: ParsedMetric, progress: number): string {
 
 export default function MetricValue({ value }: { value: string }) {
   const rootRef = useRef<HTMLDivElement>(null)
-  const [display, setDisplay] = useState(() => {
-    const parsed = parseMetricValue(value)
-    return parsed.kind === 'static' ? value : formatMetric(parsed, 0)
-  })
 
   useEffect(() => {
-    const parsed = parseMetricValue(value)
-    if (parsed.kind === 'static') {
-      setDisplay(value)
+    const root = rootRef.current
+    if (!root) {
       return
     }
 
-    const root = rootRef.current
-    if (!root) {
+    const parsed = parseMetricValue(value)
+    if (parsed.kind === 'static') {
+      root.textContent = value
       return
     }
 
@@ -84,9 +82,11 @@ export default function MetricValue({ value }: { value: string }) {
     ).matches
 
     if (prefersReducedMotion) {
-      setDisplay(value)
+      root.textContent = value
       return
     }
+
+    root.textContent = formatMetric(parsed, 0)
 
     let frameId = 0
     let hasStarted = false
@@ -103,12 +103,12 @@ export default function MetricValue({ value }: { value: string }) {
       const tick = (now: number) => {
         const progress = Math.min(1, (now - startedAt) / durationMs)
         const eased = 1 - (1 - progress) ** 3
-        setDisplay(formatMetric(parsed, eased))
+        root.textContent = formatMetric(parsed, eased)
 
         if (progress < 1) {
           frameId = window.requestAnimationFrame(tick)
         } else {
-          setDisplay(value)
+          root.textContent = value
         }
       }
 
@@ -116,7 +116,7 @@ export default function MetricValue({ value }: { value: string }) {
     }
 
     const observer = new IntersectionObserver(
-      (entries) => {
+      entries => {
         if (entries[0]?.isIntersecting) {
           play()
           observer.disconnect()
@@ -133,9 +133,5 @@ export default function MetricValue({ value }: { value: string }) {
     }
   }, [value])
 
-  return (
-    <div ref={rootRef} className="metrics__value">
-      {display}
-    </div>
-  )
+  return <div ref={rootRef} className="metrics__value" />
 }

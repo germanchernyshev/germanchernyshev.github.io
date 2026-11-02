@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import { HiOutlineInformationCircle } from 'react-icons/hi2'
+import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
 
@@ -39,7 +39,7 @@ export default function DragonAssistant({
   const rootClass = ['dragon-guide', className].filter(Boolean).join(' ')
 
   return (
-    <div className={rootClass}>
+    <div className={rootClass} data-aos="fade-up">
       <button
         type="button"
         className={`dragon-guide__trigger${isOpen ? '' : ' dragon-guide__trigger--pulse'}`}
@@ -49,15 +49,14 @@ export default function DragonAssistant({
         aria-label={isOpen ? hideLabel : openLabel}
         title={isOpen ? undefined : openLabel}
       >
-        <Image
+        <ProgressiveImage
           src={publicAsset(icon)}
           alt=""
           width={160}
           height={80}
           className="dragon-guide__icon"
-          style={{ width: 'auto', height: 80 }}
+          lockAspect={false}
           aria-hidden
-          unoptimized
           loading="lazy"
         />
         {!isOpen ? (

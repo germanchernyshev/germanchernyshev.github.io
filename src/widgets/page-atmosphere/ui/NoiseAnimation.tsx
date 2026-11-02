@@ -12,10 +12,9 @@ const NoiseAnimation: React.FC = () => {
       return
     }
 
-    let frame = 0
-    let rafId = 0
-    const patternSize = 128
-    const patternRefreshInterval = 12
+    const isNarrow = window.matchMedia('(max-width: 767px)').matches
+    const patternSize = isNarrow ? 96 : 128
+    const refreshMs = isNarrow ? 220 : 160
     const patternAlpha = 8
 
     const canvas = canvasRef.current
@@ -23,7 +22,10 @@ const NoiseAnimation: React.FC = () => {
       return
     }
 
-    const ctx = canvas.getContext('2d', { alpha: true })
+    const ctx = canvas.getContext('2d', {
+      alpha: true,
+      desynchronized: true
+    })
     if (!ctx) {
       return
     }
@@ -38,11 +40,14 @@ const NoiseAnimation: React.FC = () => {
 
     const patternData = patternCtx.createImageData(patternSize, patternSize)
     const patternPixelDataLength = patternSize * patternSize * 4
+    let timerId = 0
+    let running = true
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
-      canvas.width = window.innerWidth * dpr
-      canvas.height = window.innerHeight * dpr
+      const dpr = Math.min(window.devicePixelRatio || 1, isNarrow ? 1 : 1.25)
+      canvas.width = Math.ceil(window.innerWidth * dpr)
+      canvas.height = Math.ceil(window.innerHeight * dpr)
+      draw()
     }
 
     const update = () => {
@@ -59,6 +64,10 @@ const NoiseAnimation: React.FC = () => {
 
     const draw = () => {
       const { width, height } = canvas
+      if (!width || !height) {
+        return
+      }
+
       ctx.clearRect(0, 0, width, height)
       const pattern = ctx.createPattern(patternCanvas, 'repeat')
       if (!pattern) {
@@ -68,22 +77,36 @@ const NoiseAnimation: React.FC = () => {
       ctx.fillRect(0, 0, width, height)
     }
 
-    const loop = () => {
-      if (++frame % patternRefreshInterval === 0) {
+    const tick = () => {
+      if (!running) {
+        return
+      }
+
+      if (!document.hidden) {
         update()
         draw()
       }
 
-      rafId = window.requestAnimationFrame(loop)
+      timerId = window.setTimeout(tick, refreshMs)
+    }
+
+    const onVisibility = () => {
+      if (!document.hidden && running) {
+        window.clearTimeout(timerId)
+        tick()
+      }
     }
 
     window.addEventListener('resize', resize, { passive: true })
+    document.addEventListener('visibilitychange', onVisibility)
     resize()
-    loop()
+    tick()
 
     return () => {
+      running = false
+      window.clearTimeout(timerId)
       window.removeEventListener('resize', resize)
-      window.cancelAnimationFrame(rafId)
+      document.removeEventListener('visibilitychange', onVisibility)
     }
   }, [])
 

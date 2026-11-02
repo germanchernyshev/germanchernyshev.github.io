@@ -15,6 +15,10 @@ const PageAtmosphere = dynamic(
   () => import('@/widgets/page-atmosphere/ui/PageAtmosphere'),
   { ssr: false }
 )
+const CastleBackdrop = dynamic(
+  () => import('@/widgets/page-atmosphere/ui/CastleBackdrop'),
+  { ssr: false }
+)
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -51,6 +55,7 @@ export default function App({ Component, pageProps }: AppProps) {
           />
         </Head>
         <div className={`app ${roboto.className} ${displayFont.variable}`}>
+          <CastleBackdrop />
           <PageAtmosphere firefliesCount={FIREFLIES_COUNT} />
           <Component {...pageProps} />
         </div>
