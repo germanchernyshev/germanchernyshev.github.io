@@ -28,9 +28,7 @@
     display: grid;
     place-items: center;
     padding: var(--space-4);
-    background: rgba(12, 12, 12, 0.42);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    background: rgba(12, 12, 12, 0.72);
   }
 
   &__coming-soon {
@@ -153,14 +151,25 @@
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 0 var(--space-3);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     flex-shrink: 0;
 
     &:hover {
       color: var(--text-primary);
-      opacity: 0.85;
+      opacity: 1;
       text-decoration: none;
       text-decoration-color: transparent;
+      transform: translateY(-2px);
+      border-color: rgba(218, 211, 148, 0.55);
+      background: linear-gradient(
+        180deg,
+        rgba(218, 211, 148, 0.24),
+        rgba(218, 211, 148, 0.12)
+      );
     }
   }
 }

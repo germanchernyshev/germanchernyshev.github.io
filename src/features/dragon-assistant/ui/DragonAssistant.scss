@@ -115,8 +115,6 @@
     border-radius: var(--radius-lg);
     background: rgba(44, 42, 36, 0.94);
     border: 1px solid rgba(218, 211, 148, 0.55);
-    backdrop-filter: blur(18px) saturate(1.1);
-    -webkit-backdrop-filter: blur(18px) saturate(1.1);
     box-shadow:
       0 14px 34px rgba(0, 0, 0, 0.5),
       0 0 22px rgba(218, 211, 148, 0.16);

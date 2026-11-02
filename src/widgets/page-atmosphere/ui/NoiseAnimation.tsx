@@ -14,7 +14,7 @@ const NoiseAnimation: React.FC = () => {
 
     const isNarrow = window.matchMedia('(max-width: 767px)').matches
     const patternSize = isNarrow ? 96 : 128
-    const refreshMs = isNarrow ? 220 : 160
+    const refreshMs = isNarrow ? 280 : 200
     const patternAlpha = 8
 
     const canvas = canvasRef.current
@@ -24,7 +24,7 @@ const NoiseAnimation: React.FC = () => {
 
     const ctx = canvas.getContext('2d', {
       alpha: true,
-      desynchronized: true
+      desynchronized: true,
     })
     if (!ctx) {
       return
@@ -41,7 +41,9 @@ const NoiseAnimation: React.FC = () => {
     const patternData = patternCtx.createImageData(patternSize, patternSize)
     const patternPixelDataLength = patternSize * patternSize * 4
     let timerId = 0
+    let scrollIdleId = 0
     let running = true
+    let pausedByScroll = false
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, isNarrow ? 1 : 1.25)
@@ -78,7 +80,7 @@ const NoiseAnimation: React.FC = () => {
     }
 
     const tick = () => {
-      if (!running) {
+      if (!running || pausedByScroll) {
         return
       }
 
@@ -90,14 +92,31 @@ const NoiseAnimation: React.FC = () => {
       timerId = window.setTimeout(tick, refreshMs)
     }
 
+    const resume = () => {
+      if (!running || !pausedByScroll) {
+        return
+      }
+      pausedByScroll = false
+      window.clearTimeout(timerId)
+      tick()
+    }
+
+    const onScroll = () => {
+      pausedByScroll = true
+      window.clearTimeout(timerId)
+      window.clearTimeout(scrollIdleId)
+      scrollIdleId = window.setTimeout(resume, 140)
+    }
+
     const onVisibility = () => {
-      if (!document.hidden && running) {
+      if (!document.hidden && running && !pausedByScroll) {
         window.clearTimeout(timerId)
         tick()
       }
     }
 
     window.addEventListener('resize', resize, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     document.addEventListener('visibilitychange', onVisibility)
     resize()
     tick()
@@ -105,7 +124,9 @@ const NoiseAnimation: React.FC = () => {
     return () => {
       running = false
       window.clearTimeout(timerId)
+      window.clearTimeout(scrollIdleId)
       window.removeEventListener('resize', resize)
+      window.removeEventListener('scroll', onScroll)
       document.removeEventListener('visibilitychange', onVisibility)
     }
   }, [])

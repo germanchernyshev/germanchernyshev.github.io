@@ -21,11 +21,6 @@ export default function Footer() {
       className="footer"
     >
       <div className="footer__inner">
-        <div className="footer__intro">
-          <h2 className="footer__title">{t('common.jobTitle')}</h2>
-          <p className="footer__text">{t('footer.text')}</p>
-        </div>
-
         <a
           href={AUTHOR_TELEGRAM}
           target="_blank"

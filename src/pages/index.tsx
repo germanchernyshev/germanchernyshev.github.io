@@ -1,7 +1,6 @@
 import Hero from '@/widgets/hero'
 import Metrics from '@/widgets/metrics'
 import WhatRemains from '@/widgets/what-remains'
-import PlayunmuteShowcase from '@/widgets/playunmute'
 import Projects from '@/widgets/projects'
 import SocialProof from '@/widgets/social-proof'
 import Mentorship from '@/widgets/mentorship'
@@ -29,10 +28,6 @@ export default function Home() {
 
         <div className="normalize-section normalize-container">
           <WhatRemains />
-        </div>
-
-        <div className="normalize-section normalize-container">
-          <PlayunmuteShowcase />
         </div>
 
         <div className="normalize-section normalize-container">

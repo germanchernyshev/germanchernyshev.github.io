@@ -41,9 +41,16 @@
 
     &:hover {
       text-decoration: none;
-      color: var(--primary);
-      transform: translateY(-1px);
-      border-color: rgba(218, 211, 148, 0.6);
+      text-decoration-color: transparent;
+      color: var(--text-primary);
+      opacity: 1;
+      transform: translateY(-2px);
+      border-color: rgba(218, 211, 148, 0.55);
+      background: linear-gradient(
+        180deg,
+        rgba(218, 211, 148, 0.24),
+        rgba(218, 211, 148, 0.12)
+      );
     }
 
     &--active {
@@ -79,10 +86,6 @@
       rgba(255, 255, 255, 0.02)
     );
     border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transform: translateZ(0);
-    isolation: isolate;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     overflow-x: auto;
     overflow-y: hidden;

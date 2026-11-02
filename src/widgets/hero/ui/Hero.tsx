@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { AUTHOR_PHOTO, WEB_DRAGON_TIPS } from '@/shared/config'
+import { AUTHOR_PHOTO, AUTHOR_TELEGRAM, WEB_DRAGON_TIPS } from '@/shared/config'
 import DragonAssistant from '@/features/dragon-assistant'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import ProgressiveImage from '@/shared/ui/progressive-image'
@@ -35,6 +35,7 @@ export default function Hero() {
           icon={WEB_DRAGON_TIPS.hero.icon}
           text={t(WEB_DRAGON_TIPS.hero.tipKey)}
           className="dragon-guide--hero"
+          defaultOpen
         />
 
         <p className="hero__headline hero__reveal hero__reveal--2">
@@ -46,11 +47,21 @@ export default function Hero() {
         </p>
 
         <div className="hero__actions hero__reveal hero__reveal--4">
-          <a href="#contacts" className="hero__cta hero__cta--primary">
+          <a
+            href={AUTHOR_TELEGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero__cta hero__cta--primary"
+          >
             <KitIcon name="send" size={KIT_ICON_MD} className="hero__cta-icon" />
             {t('hero.discuss')}
           </a>
-          <a href="#mentorship" className="hero__cta">
+          <a
+            href={AUTHOR_TELEGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero__cta"
+          >
             <KitIcon name="wand" size={KIT_ICON_MD} className="hero__cta-icon" />
             {t('hero.mentorCta')}
           </a>

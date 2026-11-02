@@ -6,6 +6,7 @@ import type { KitIconName } from '@/shared/ui/kit-icon'
 import SectionHeading from '@/shared/ui/section-heading'
 import DragonAssistant from '@/features/dragon-assistant'
 import { AUTHOR_TELEGRAM, WEB_DRAGON_TIPS } from '@/shared/config'
+import PlayunmuteShowcase from '@/widgets/playunmute'
 import { useTranslation } from 'react-i18next'
 
 const MENTORSHIP_FORMATS: Array<{
@@ -66,6 +67,8 @@ export default function Mentorship() {
           </li>
         ))}
       </ul>
+
+      <PlayunmuteShowcase />
 
       <div
         className="mentorship__cta"

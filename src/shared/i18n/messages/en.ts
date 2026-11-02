@@ -19,7 +19,7 @@ export const en: DeepStringify<typeof ru> = {
     jobTitle: 'Head of Engineering / Architect',
     focus: 'Architecture · Team Leadership · Full-cycle Engineering',
     focusAria: 'Focus',
-    write: 'Message',
+    write: 'Discuss a role',
     email: 'Email',
     github: 'GitHub',
   },
@@ -55,7 +55,7 @@ export const en: DeepStringify<typeof ru> = {
     headline: 'Started in code. Now I own delivery end to end.',
     support:
       'The team ships features predictably. Business gets results it can count on.',
-    discuss: "Let's talk?",
+    discuss: 'Discuss a role',
     mentorCta: 'Need a mentor? Ping me.',
   },
   metrics: {
@@ -142,16 +142,19 @@ export const en: DeepStringify<typeof ru> = {
     cases: {
       'multi-product-platform': {
         title: 'Multi-product event platform',
+        summary: 'Migration with no production downtime and no data loss.',
         description:
           'Legacy nobody dared to touch: ticket sales, events, personal cabinet, admin, several products. Migration to a modern stack. No production downtime. No data loss. Extra pain — data chaos: we had to structure, recover, and keep it healthy so events for thousands of players ran without outages, transactions were not lost, and registrations no longer needed managers intervening by hand like before.',
       },
       'retail-platform': {
         title: 'Retail platform',
+        summary: 'New design system. Conversion up, fewer drop-offs at checkout.',
         description:
           'B2B retail. Site, admin, personal cabinet for business clients. Thousands of users, a large product catalog. We automated processes that used to need manager intervention. Built a new design system — conversion rose, clients stopped dropping off at checkout.',
       },
       'mini-apps': {
         title: 'Telegram & VK Mini Apps, AI integrations',
+        summary: 'Deadlines others refused. Stable releases.',
         description:
           'Mini Apps and bots for Telegram and VK. Major brands, audiences from 100k users. Peak hours — tens of thousands of requests per second. Hard deadlines with no slip room: risk control, precise estimation, AI features inside the apps. We hit timelines others refused. Stable releases, bugs caught before users see them. Brands happy, team calm.',
       },
@@ -195,7 +198,7 @@ export const en: DeepStringify<typeof ru> = {
   },
   footer: {
     text: 'Strategy, architecture, team, quality. And no dragon hunters, of course.',
-    cta: 'Where do we start?',
+    cta: 'Message on Telegram',
     contactsAria: 'Contacts',
   },
   error: {

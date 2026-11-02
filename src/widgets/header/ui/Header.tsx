@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
 import ProgressiveImage from '@/shared/ui/progressive-image'
+import { AUTHOR_TELEGRAM } from '@/shared/config'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
 
@@ -19,9 +20,9 @@ const NAV_SECTIONS: Array<{
   icon: KitIconName
 }> = [
   { href: '#metrics', sectionId: 'metrics', labelKey: 'nav.metrics', icon: 'bar-chart' },
-  { href: '#playunmute', sectionId: 'playunmute', labelKey: 'nav.product', icon: 'rocket' },
   { href: '#cases', sectionId: 'cases', labelKey: 'nav.cases', icon: 'pouch' },
   { href: '#mentorship', sectionId: 'mentorship', labelKey: 'nav.mentorship', icon: 'book' },
+  { href: '#playunmute', sectionId: 'playunmute', labelKey: 'nav.product', icon: 'rocket' },
   { href: '#stack', sectionId: 'stack', labelKey: 'nav.stack', icon: 'scroll-code' },
 ]
 
@@ -125,13 +126,14 @@ export default function Navbar() {
         </nav>
 
         <a
-          href="#contacts"
-          className={`header__cta${activeSection === 'contacts' ? ' header__cta--active' : ''}`}
+          href={AUTHOR_TELEGRAM}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="header__cta"
           aria-label={t('common.write')}
           title={t('common.write')}
-          aria-current={activeSection === 'contacts' ? 'true' : undefined}
         >
-          <KitIcon name="mail" size={KIT_ICON_MD} className="header__cta-icon" />
+          <KitIcon name="send" size={KIT_ICON_MD} className="header__cta-icon" />
           <span className="header__cta-text">{t('common.write')}</span>
         </a>
       </div>

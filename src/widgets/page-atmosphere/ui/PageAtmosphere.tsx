@@ -1,9 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import NoiseAnimation from './NoiseAnimation'
 import DragonFireflies from './DragonFireflies'
-import FollowCursor from './FollowCursor'
 
 export default function PageAtmosphere({
   firefliesCount,
@@ -38,9 +36,7 @@ export default function PageAtmosphere({
 
   return (
     <>
-      <NoiseAnimation />
       <DragonFireflies count={firefliesCount} />
-      <FollowCursor />
     </>
   )
 }

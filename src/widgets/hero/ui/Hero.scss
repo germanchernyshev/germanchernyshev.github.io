@@ -108,10 +108,17 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 
     &:hover {
+      color: var(--text-primary);
       text-decoration: none;
+      text-decoration-color: transparent;
+      opacity: 1;
       transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.32);
-      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(218, 211, 148, 0.55);
+      background: linear-gradient(
+        180deg,
+        rgba(218, 211, 148, 0.24),
+        rgba(218, 211, 148, 0.12)
+      );
     }
 
     &--primary {
@@ -123,12 +130,12 @@
       border-color: rgba(218, 211, 148, 0.5);
 
       &:hover {
-        color: var(--primary);
-        border-color: rgba(218, 211, 148, 0.7);
+        color: var(--text-primary);
+        border-color: rgba(218, 211, 148, 0.55);
         background: linear-gradient(
           180deg,
-          rgba(218, 211, 148, 0.34),
-          rgba(218, 211, 148, 0.16)
+          rgba(218, 211, 148, 0.24),
+          rgba(218, 211, 148, 0.12)
         );
       }
     }

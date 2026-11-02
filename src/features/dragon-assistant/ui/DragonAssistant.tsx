@@ -13,11 +13,13 @@ export default function DragonAssistant({
   icon,
   text,
   className = '',
+  defaultOpen = false,
 }: {
   tipId: string
   icon: string
   text: string
   className?: string
+  defaultOpen?: boolean
 }) {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
@@ -25,8 +27,12 @@ export default function DragonAssistant({
   const hideLabel = t('dragon.hideTip')
 
   useEffect(() => {
+    if (!defaultOpen) {
+      return
+    }
+
     setIsOpen(window.matchMedia(DESKTOP_MIN_WIDTH).matches)
-  }, [])
+  }, [defaultOpen])
 
   const rootClass = ['dragon-guide', className].filter(Boolean).join(' ')
 

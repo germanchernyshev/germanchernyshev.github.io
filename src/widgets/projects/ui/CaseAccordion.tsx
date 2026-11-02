@@ -56,7 +56,12 @@ export default function CaseAccordion({
         >
           <span className="case__trigger-start">
             <KitIcon name={caseIcon} size={KIT_ICON_MD} className="case__trigger-icon" />
-            <span className="case__trigger-text">{title}</span>
+            <span className="case__trigger-copy">
+              <span className="case__trigger-text">{title}</span>
+              <span className="case__summary">
+                {t(`projects.cases.${caseEntry.id}.summary`)}
+              </span>
+            </span>
           </span>
           <svg
             className="case__chevron"
