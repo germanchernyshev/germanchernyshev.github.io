@@ -7,7 +7,7 @@ import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
 
-const PLAYUNMUTE_DEMO = 'https://webdrgn.github.io/playunmute'
+const PLAYUNMUTE_DEMO = 'https://germanchernyshev.github.io/playunmute'
 const PLAYUNMUTE_PREVIEW = publicAsset('/img/playunmute.webp')
 const PLAYUNMUTE_COMING_SOON = false
 

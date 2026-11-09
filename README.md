@@ -74,4 +74,4 @@ web-dragon/
 
 ---
 
-**Сайт:** [https://webdrgn.github.io/web-dragon](https://webdrgn.github.io/web-dragon)  
+**Сайт:** [https://germanchernyshev.github.io](https://germanchernyshev.github.io)  
