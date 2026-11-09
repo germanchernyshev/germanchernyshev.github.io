@@ -1,5 +1,6 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
+@import 'mixins/glass';
 
 .projects {
   @include flexbox(center, center, column, var(--space-stack));
@@ -21,12 +22,9 @@
     color: var(--text-secondary);
     padding: var(--space-4) var(--space-5);
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    @include glass;
 
-    a {
+    & a {
       display: inline-flex;
       align-items: center;
       min-height: var(--touch-min);
@@ -45,12 +43,9 @@
     @include flexbox(center, center, column, var(--space-3));
     padding: var(--space-card);
     border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     width: 100%;
     max-width: var(--content-max);
+    @include glass;
 
     p {
       margin: 0;
@@ -89,13 +84,10 @@
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
-    background: transparent;
-    border: 1px solid transparent;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
     padding: 0 var(--space-3);
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    @include glass-ghost;
 
     &:hover {
       color: var(--text-primary);
@@ -103,7 +95,6 @@
       text-decoration-color: transparent;
       opacity: 1;
       transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.28);
       background: rgba(255, 255, 255, 0.08);
     }
   }
@@ -171,11 +162,8 @@
   width: 100%;
   padding: var(--space-card);
   border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   transition: border-color 0.25s ease, background 0.25s ease;
+  @include glass;
 
   &--accordion {
     padding: 0;
@@ -190,7 +178,6 @@
   }
 
   &--open {
-    border-color: rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.04);
 
     .case__trigger {

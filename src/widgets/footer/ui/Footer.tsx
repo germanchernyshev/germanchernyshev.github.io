@@ -20,7 +20,10 @@ export default function Footer() {
       id="contacts"
       className="footer"
     >
-      <div className="footer__inner">
+      <div
+        className="footer__inner"
+        data-aos="fade-up"
+      >
         <div className="footer__intro">
           <h2 className="footer__title">{t('common.jobTitle')}</h2>
           <p className="footer__text">{t('footer.text')}</p>

@@ -1,5 +1,6 @@
 @import 'mixins/media';
 @import 'mixins/flexbox';
+@import 'mixins/glass';
 
 .skills {
   @include flexbox(center, center, column, var(--space-stack));
@@ -81,6 +82,18 @@
 }
 
 .skills__item {
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  height: 100%;
+  transition: background 0.2s ease;
+  @include glass;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
   @include media(max, mobile) {
     padding: var(--space-card);
   }

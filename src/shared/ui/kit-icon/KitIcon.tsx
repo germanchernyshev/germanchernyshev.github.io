@@ -81,6 +81,7 @@ type KitIconProps = {
   className?: string
 }
 
+export const KIT_ICON_SM = 20
 export const KIT_ICON_MD = 28
 export const KIT_ICON_LG = 40
 

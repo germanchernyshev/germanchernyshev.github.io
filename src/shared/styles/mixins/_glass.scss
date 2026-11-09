@@ -1,0 +1,53 @@
+$glass-fill: rgba(255, 255, 255, 0.05);
+$glass-fill-dense: rgba(255, 255, 255, 0.16);
+$glass-blur: 10px;
+$glass-blur-dense: 14px;
+
+@mixin glass($fill: $glass-fill, $blur: $glass-blur) {
+  & {
+    position: relative;
+    isolation: isolate;
+    background: $fill;
+    background-clip: padding-box;
+    border: 1px solid transparent !important;
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+  }
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    border-color: transparent !important;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.38) 0%,
+      rgba(255, 255, 255, 0.12) 24%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0.05) 74%,
+      rgba(255, 255, 255, 0.16) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    z-index: 3;
+  }
+}
+
+@mixin glass-primary {
+  @include glass($glass-fill-dense, $glass-blur-dense);
+}
+
+@mixin glass-ghost {
+  @include glass(transparent, $glass-blur);
+}

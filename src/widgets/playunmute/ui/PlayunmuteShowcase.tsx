@@ -53,15 +53,34 @@ export default function PlayunmuteShowcase({
           className="product-showcase__body"
           {...(comingSoon ? { inert: true } : {})}
         >
-          <p className="product-showcase__label">{t('playunmute.label')}</p>
+          <div className="product-showcase__copy">
+            <p className="product-showcase__label">{t('playunmute.label')}</p>
 
-          <div className="product-showcase__head">
             <h2
               id="playunmute-heading"
               className="product-showcase__title"
             >
               Playunmute
             </h2>
+
+            <p className="product-showcase__proof">{t('playunmute.proof1')}</p>
+
+            <ul className="product-showcase__features">
+              {PLAYUNMUTE_FEATURES.map(feature => (
+                <li
+                  key={feature.labelKey}
+                  className="product-showcase__feature"
+                >
+                  <KitIcon
+                    name={feature.icon}
+                    size={KIT_ICON_MD}
+                    className="product-showcase__feature-icon"
+                  />
+                  <span>{t(feature.labelKey)}</span>
+                </li>
+              ))}
+            </ul>
+
             {!comingSoon && (
               <a
                 href={PLAYUNMUTE_DEMO}
@@ -76,25 +95,9 @@ export default function PlayunmuteShowcase({
                 {t('playunmute.tryDemo')}
               </a>
             )}
+
+            <p className="product-showcase__stack">{PLAYUNMUTE_STACK}</p>
           </div>
-
-          <p className="product-showcase__proof">{t('playunmute.proof1')}</p>
-
-          <ul className="product-showcase__features">
-            {PLAYUNMUTE_FEATURES.map(feature => (
-              <li
-                key={feature.labelKey}
-                className="product-showcase__feature"
-              >
-                <KitIcon
-                  name={feature.icon}
-                  size={KIT_ICON_MD}
-                  className="product-showcase__feature-icon"
-                />
-                <span>{t(feature.labelKey)}</span>
-              </li>
-            ))}
-          </ul>
 
           <div className="product-showcase__preview">
             <ProgressiveImage
@@ -106,8 +109,6 @@ export default function PlayunmuteShowcase({
               loading="lazy"
             />
           </div>
-
-          <p className="product-showcase__stack">{PLAYUNMUTE_STACK}</p>
         </div>
 
         {comingSoon && (

@@ -1,5 +1,6 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
+@import 'mixins/glass';
 
 .hero {
   position: relative;
@@ -32,8 +33,13 @@
     width: clamp(96px, 16vw, 148px);
     height: clamp(96px, 16vw, 148px);
     border-radius: 50%;
-    border: 1.5px solid rgba(218, 211, 148, 0.4);
+    overflow: hidden;
+    border: 0;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+
+    .progressive-image__img {
+      border-radius: 50%;
+    }
   }
 
   &__identity {
@@ -104,10 +110,7 @@
     font-weight: 600;
     text-decoration: none;
     color: var(--text-primary);
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    @include glass-ghost;
 
     &:hover {
       color: var(--text-primary);
@@ -115,21 +118,16 @@
       text-decoration-color: transparent;
       opacity: 1;
       transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.28);
       background: rgba(255, 255, 255, 0.08);
     }
 
     &--primary {
       color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.34);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+      @include glass-primary;
 
       &:hover {
         color: var(--text-primary);
-        border-color: rgba(255, 255, 255, 0.46);
         background: rgba(255, 255, 255, 0.22);
         box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38);
       }

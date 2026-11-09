@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
+import KitIcon, { KIT_ICON_SM } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
 import ProgressiveImage from '@/shared/ui/progressive-image'
 import { AUTHOR_TELEGRAM } from '@/shared/config'
@@ -85,7 +85,7 @@ export default function Navbar() {
                 title={label}
                 aria-current={activeSection === sectionId ? 'true' : undefined}
               >
-                <KitIcon name={icon} size={KIT_ICON_MD} className="nav__item-icon" />
+                <KitIcon name={icon} size={KIT_ICON_SM} className="nav__item-icon" />
                 <span className="nav__item-text">{label}</span>
               </a>
             )
@@ -118,7 +118,7 @@ export default function Navbar() {
                 title={label}
                 aria-current={activeSection === sectionId ? 'true' : undefined}
               >
-                <KitIcon name={icon} size={KIT_ICON_MD} className="nav__item-icon" />
+                <KitIcon name={icon} size={KIT_ICON_SM} className="nav__item-icon" />
                 <span className="nav__item-text">{label}</span>
               </a>
             )
@@ -133,7 +133,7 @@ export default function Navbar() {
           aria-label={t('common.write')}
           title={t('common.write')}
         >
-          <KitIcon name="send" size={KIT_ICON_MD} className="header__cta-icon" />
+          <KitIcon name="send" size={KIT_ICON_SM} className="header__cta-icon" />
           <span className="header__cta-text">{t('common.write')}</span>
         </a>
       </div>

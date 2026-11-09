@@ -1,5 +1,6 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
+@import 'mixins/glass';
 
 .modal {
   &-container {
@@ -21,26 +22,23 @@
   }
 
   &__inner {
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     @include flexbox(space-between, initial, column, 24px);
-
     padding: 32px;
     z-index: 20;
-
     width: calc(100% - 48px);
     max-width: 700px;
     min-height: fit-content;
-
-    background: rgba(24, 24, 24, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     color: white;
     border-radius: 16px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    @include glass(rgba(24, 24, 24, 0.9), 12px);
+
+    & {
+      position: fixed;
+    }
 
     @include media(max, mobile) {
       padding: 24px;

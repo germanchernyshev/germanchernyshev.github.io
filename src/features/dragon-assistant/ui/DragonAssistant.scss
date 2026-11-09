@@ -1,5 +1,6 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
+@import 'mixins/glass';
 
 .dragon-guide {
   position: relative;
@@ -106,7 +107,6 @@
 
   &__bubble {
     pointer-events: auto;
-    position: absolute;
     top: calc(100% + var(--space-2));
     left: 50%;
     right: auto;
@@ -118,17 +118,32 @@
     width: min(240px, calc(100vw - 48px));
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-lg);
-    background: rgba(58, 56, 52, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow:
-      0 18px 42px rgba(0, 0, 0, 0.62),
-      0 0 0 1px rgba(255, 255, 255, 0.04);
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.62));
     transform: translate3d(-50%, 0, 0);
     transform-origin: top center;
-    isolation: isolate;
     animation: dragon-guide-reveal-center 0.35s ease-out both;
+    @include glass(transparent, 0);
+
+    & {
+      position: absolute;
+      background: transparent !important;
+      overflow: hidden;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(28, 27, 25, 0.96);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   &__text {

@@ -148,7 +148,6 @@ button {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
-    border-color: rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.07);
   }
 
@@ -234,7 +233,8 @@ ul {
 .projects__nda[data-aos^='fade'][data-aos^='fade'],
 .projects__accordion-list[data-aos^='fade'][data-aos^='fade'],
 .skill[data-aos^='fade'][data-aos^='fade'],
-.skills__item[data-aos^='fade'][data-aos^='fade'] {
+.skills__item[data-aos^='fade'][data-aos^='fade'],
+.footer__inner[data-aos^='fade'][data-aos^='fade'] {
   opacity: 1;
   transition-property: transform;
 }
