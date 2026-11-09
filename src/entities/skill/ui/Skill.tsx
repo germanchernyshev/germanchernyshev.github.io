@@ -38,13 +38,13 @@ export default function Skill({ skill }: SkillProps) {
 
       <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
 
-      <ul className="skills__tags">
+      <div className="skills__tags">
         {tags.map(tag => (
-          <li key={tag} className="skills__tag">
+          <span key={tag} className="skills__tag">
             {tag}
-          </li>
+          </span>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }

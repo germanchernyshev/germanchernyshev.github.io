@@ -170,8 +170,6 @@
     justify-self: center;
     aspect-ratio: 1;
     border-radius: var(--radius-lg);
-    overflow: hidden;
-    @include glass-border;
 
     @include media(min, tablet) {
       max-width: none;
@@ -183,11 +181,17 @@
     display: block;
     width: 100%;
     height: auto;
+    border-radius: inherit;
   }
 
   &__preview .progressive-image {
     display: block;
     width: 100%;
     height: 100%;
+    border-radius: inherit;
+  }
+
+  &__preview .progressive-image__img {
+    border-radius: inherit;
   }
 }

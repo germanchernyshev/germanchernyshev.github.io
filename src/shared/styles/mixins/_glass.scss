@@ -38,7 +38,7 @@ $glass-blur-dense: 14px;
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    mask-composite: exclude;
     pointer-events: none;
     z-index: 3;
   }
