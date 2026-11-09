@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next'
 import MetricValue from './MetricValue'
 
 const METRIC_KEYS = [
+  'aiFirst',
   'components',
   'specialists',
   'faster',
@@ -18,6 +19,7 @@ const METRIC_KEYS = [
 ] as const
 
 const METRIC_ICONS: Record<(typeof METRIC_KEYS)[number], KitIconName> = {
+  aiFirst: 'sparkle',
   components: 'presentation',
   specialists: 'users',
   faster: 'target',

@@ -12,7 +12,7 @@ export const en: DeepStringify<typeof ru> = {
   meta: {
     authorName: 'German Chernyshev',
     description:
-      'Head of Engineering / Architect. Architecture · Team Leadership · Full-cycle Engineering. Strategy, architecture, team, quality. Design system with 70–100+ components, 20+ specialists, 30–70% faster delivery, onboarding month → week. TypeScript, Vue, React, Node.js, PHP, PostgreSQL, Docker.',
+      'Head of Engineering / Architect. Architecture · Team Leadership · Full-cycle Engineering. AI-first processes, harness for AI-assisted code. Strategy, architecture, team, quality. Design system with 70–100+ components, 20+ specialists, 30–70% faster delivery, onboarding month → week. TypeScript, Vue, React, Node.js, PHP, PostgreSQL, Docker.',
     skipToContent: 'Skip to content',
   },
   common: {
@@ -62,6 +62,12 @@ export const en: DeepStringify<typeof ru> = {
     title: 'Metrics',
     lead: 'What I treat as important — and know how to measure.',
     items: {
+      aiFirst: {
+        value: '30–40%',
+        label: 'full cycle with AI',
+        context:
+          'Sped up the whole delivery cycle with AI-first: Claude + Jira, a harness with strict review and tests, agent access controls. Trained the team, ran workshops on agentic development. Typical tasks and project kickoffs got faster; releases stayed as stable — AI-written code faces the same checks as human code.',
+      },
       components: {
         value: '70–100+',
         label: 'components',
@@ -76,9 +82,9 @@ export const en: DeepStringify<typeof ru> = {
       },
       faster: {
         value: '30–70%',
-        label: 'faster',
+        label: 'faster feature shipping',
         context:
-          'A task that used to eat a week now lands in a day. New features plug in surgically. No rewriting half the product. Same team, different speed.',
+          'No AI here — architecture and the design system. A task that used to eat a week now lands in a day. New features plug in surgically. No rewriting half the product. Same team, different speed.',
       },
       bugs: {
         value: '−45%',
@@ -98,6 +104,11 @@ export const en: DeepStringify<typeof ru> = {
     title: 'What remains after me',
     lead: 'A system that keeps living without my hands on it.',
     items: {
+      aiFirst: {
+        title: 'AI-first processes',
+        detail:
+          'A harness for AI-assisted code, review, and tests. The team knows where an agent speeds you up — and where it creates busywork.',
+      },
       designSystem: {
         title: 'Design system',
         detail:
@@ -189,11 +200,22 @@ export const en: DeepStringify<typeof ru> = {
     title: 'Stack',
     lead: 'I pick tech for the task, the team, and the load. JavaScript, TypeScript, Vue, React, Node.js, PHP, PostgreSQL, Docker, CI/CD, WebSocket, Centrifugo. I’ve built design systems, pulled projects out of legacy, set up infrastructure and process. Language doesn’t matter — it has to work, scale, and not break.',
     groups: {
+      leadership: 'Leadership & team',
+      architecture: 'Architecture',
       core: 'Core stack',
-      ui: 'UI & design systems',
-      integrations: 'Integrations & data',
-      backend: 'Backend & infrastructure',
+      platform: 'Platform & data',
       process: 'Process',
+    },
+    tags: {
+      leadership:
+        'Engineering team leadership · Hiring · Mentorship · Stakeholder management · Technical strategy · Tech debt management · Code review · Release management',
+      architecture:
+        'Software architecture · System design · Microservices · Microfrontends · FSD · Performance Optimization · OpenAPI · AI-first · Storybook · Design Systems',
+      core:
+        'JavaScript · TypeScript · Vue.js · Nuxt.js · React · Pinia · Vuex · Redux Toolkit · Vite · Webpack · SSR · Node.js',
+      platform:
+        'PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo · Docker · CI/CD · PHP',
+      process: 'AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
     },
   },
   footer: {

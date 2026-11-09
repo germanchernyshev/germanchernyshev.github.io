@@ -9,6 +9,7 @@ import { WEB_DRAGON_TIPS } from '@/shared/config'
 import { useTranslation } from 'react-i18next'
 
 const WHAT_REMAINS_KEYS = [
+  'aiFirst',
   'designSystem',
   'releases',
   'onboarding',
@@ -16,6 +17,7 @@ const WHAT_REMAINS_KEYS = [
 ] as const
 
 const WHAT_REMAINS_ICONS: Record<(typeof WHAT_REMAINS_KEYS)[number], KitIconName> = {
+  aiFirst: 'wand',
   designSystem: 'documents',
   releases: 'shield',
   onboarding: 'sprout',

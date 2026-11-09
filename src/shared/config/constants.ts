@@ -41,7 +41,7 @@ export const AUTHOR_JOB_TITLE = 'Head of Engineering / Architect';
 export const SITE_NAME = `${AUTHOR_NAME} · ${AUTHOR_JOB_TITLE}`;
 export const AUTHOR_PHOTO = '/img/resume.webp';
 export const SEO_DESCRIPTION =
-  'Head of Engineering / Architect. Architecture · Team Leadership · Full-cycle Engineering. Стратегия, архитектура, команда, качество. Дизайн-система 70–100+ компонентов, 20+ специалистов, ускорение разработки 30–70%, онбординг месяц → неделя. TypeScript, Vue, React, Node.js, PHP, PostgreSQL, Docker.';
+  'Head of Engineering / Architect. Architecture · Team Leadership · Full-cycle Engineering. AI-first процессы, харнесс для ИИ-кода. Стратегия, архитектура, команда, качество. Дизайн-система 70–100+ компонентов, 20+ специалистов, ускорение 30–70%, онбординг месяц → неделя. TypeScript, Vue, React, Node.js, PHP, PostgreSQL, Docker.';
 export const SEO_KEYWORDS = [
   'Head of Engineering',
   'Frontend Architect',
@@ -50,6 +50,10 @@ export const SEO_KEYWORDS = [
   'руководитель разработки',
   'team leadership',
   'full-cycle engineering',
+  'AI-first',
+  'AI engineering',
+  'agentic development',
+  'Claude',
   'дизайн-система',
   'design system',
   'Storybook',

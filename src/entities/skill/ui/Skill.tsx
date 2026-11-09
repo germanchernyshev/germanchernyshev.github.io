@@ -7,9 +7,9 @@ import type { Skill as SkillType } from '@/shared/types'
 import { useTranslation } from 'react-i18next'
 
 const SKILL_ICON_BY_ID: Record<number, KitIconName> = {
-  1: 'laptop',
-  2: 'sparkle',
-  3: 'git-branch',
+  1: 'users',
+  2: 'castle',
+  3: 'laptop',
   4: 'server',
   5: 'checklist',
 }
@@ -22,6 +22,7 @@ export default function Skill({ skill }: SkillProps) {
   const { t } = useTranslation()
   const iconName = SKILL_ICON_BY_ID[skill.id] ?? 'laptop'
   const title = t(skill.titleKey)
+  const tags = t(skill.descriptionKey)
 
   return (
     <div
@@ -34,7 +35,7 @@ export default function Skill({ skill }: SkillProps) {
 
       <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
 
-      <p className="text-base text-gray-300 leading-relaxed">{skill.description}</p>
+      <p className="text-base text-gray-300 leading-relaxed">{tags}</p>
     </div>
   )
 }
