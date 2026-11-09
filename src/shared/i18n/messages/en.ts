@@ -208,7 +208,7 @@ export const en: DeepStringify<typeof ru> = {
     },
     tags: {
       leadership:
-        'Engineering team leadership · Hiring · Mentorship · Stakeholder management',
+        'Cross-functional team leadership · Full development cycle · Hiring · Onboarding · 1-on-1s · Mentorship · Engineer development · Performance feedback · Cross-team coordination · Clients & stakeholders',
       architecture:
         'Technical strategy · Software architecture · System design · Tech debt management · Microservices · Microfrontends · FSD · Performance Optimization · OpenAPI · Code review · Release management',
       frontend:
@@ -216,7 +216,7 @@ export const en: DeepStringify<typeof ru> = {
       backend:
         'Node.js · PHP · PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo',
       process:
-        'Docker · CI/CD · AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
+        'Docker · CI/CD · AI-first · Agent harness · Claude · Cursor · Codex · Agile · Scrum · Kanban',
     },
   },
   footer: {

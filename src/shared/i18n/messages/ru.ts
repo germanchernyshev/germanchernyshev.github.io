@@ -198,7 +198,7 @@ export const ru = {
     },
     tags: {
       leadership:
-        'Управление командой разработки · Найм персонала · Менторство · Взаимодействие с заказчиками и стейкхолдерами',
+        'Управление кроссфункциональными командами · Полный цикл разработки · Найм · Онбординг · 1-on-1 · Менторство · Развитие инженеров · Оценка и feedback · Кросс-командная координация · Заказчики и стейкхолдеры',
       architecture:
         'Техническая стратегия · Архитектура ПО · Проектирование систем · Управление техническим долгом · Микросервисы · Microfrontends · FSD · Performance Optimization · OpenAPI · Код-ревью · Управление релизами',
       frontend:
@@ -206,7 +206,7 @@ export const ru = {
       backend:
         'Node.js · PHP · PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo',
       process:
-        'Docker · CI/CD · AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
+        'Docker · CI/CD · AI-first · Agent harness · Claude · Cursor · Codex · Agile · Scrum · Kanban',
     },
   },
   footer: {

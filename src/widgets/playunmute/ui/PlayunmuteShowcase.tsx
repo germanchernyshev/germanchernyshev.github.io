@@ -56,12 +56,29 @@ export default function PlayunmuteShowcase({
           <div className="product-showcase__copy">
             <p className="product-showcase__label">{t('playunmute.label')}</p>
 
-            <h2
-              id="playunmute-heading"
-              className="product-showcase__title"
-            >
-              Playunmute
-            </h2>
+            <div className="product-showcase__heading">
+              <h2
+                id="playunmute-heading"
+                className="product-showcase__title"
+              >
+                Playunmute
+              </h2>
+
+              {!comingSoon && (
+                <a
+                  href={PLAYUNMUTE_DEMO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="product-showcase__demo"
+                >
+                  <KitIcon
+                    name="star"
+                    size={KIT_ICON_MD}
+                  />
+                  {t('playunmute.tryDemo')}
+                </a>
+              )}
+            </div>
 
             <p className="product-showcase__proof">{t('playunmute.proof1')}</p>
 
@@ -80,21 +97,6 @@ export default function PlayunmuteShowcase({
                 </li>
               ))}
             </ul>
-
-            {!comingSoon && (
-              <a
-                href={PLAYUNMUTE_DEMO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="product-showcase__demo"
-              >
-                <KitIcon
-                  name="star"
-                  size={KIT_ICON_MD}
-                />
-                {t('playunmute.tryDemo')}
-              </a>
-            )}
 
             <p className="product-showcase__stack">{PLAYUNMUTE_STACK}</p>
           </div>
