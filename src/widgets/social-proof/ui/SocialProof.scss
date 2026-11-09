@@ -59,7 +59,10 @@
     white-space: nowrap;
     border-radius: var(--radius-md);
     padding: 0 var(--space-4);
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      background 0.25s ease;
     @include glass;
 
     &:hover {

@@ -1,5 +1,6 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
+@import 'mixins/glass';
 
 .dragon-guide {
   position: relative;
@@ -27,15 +28,21 @@
     min-height: 80px;
     max-height: 80px;
     padding: 0;
-    border: none;
+    border: 0 !important;
     border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     cursor: pointer;
     flex-shrink: 0;
     overflow: visible;
+    isolation: auto;
+
+    &::before {
+      content: none !important;
+      display: none !important;
+    }
 
     &--pulse .dragon-guide__hint {
       animation: dragon-guide-pulse 1.8s ease-in-out infinite;
@@ -46,22 +53,24 @@
       color: rgba(255, 244, 196, 0.98);
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus-visible {
       transform: translateY(-2px);
-      background: transparent;
-      border: none;
-      box-shadow: none;
+      background: transparent !important;
+      border: 0 !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
 
-      .dragon-guide__hint {
-        animation: none;
-        color: rgba(255, 244, 196, 0.98);
-        opacity: 1;
-      }
+    &:hover .dragon-guide__hint {
+      animation: none;
+      color: rgba(255, 244, 196, 0.98);
+      opacity: 1;
     }
 
     &:active {
       transform: translateY(0);
-      box-shadow: none;
     }
 
     &:focus-visible {
@@ -184,18 +193,15 @@
     font-size: 13px;
     font-weight: 600;
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
     cursor: pointer;
+    transition: background 0.2s ease;
+    @include glass(rgba(255, 255, 255, 0.06));
 
     &:hover {
       transform: none;
       color: var(--text-primary);
       background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
       box-shadow: none;
     }
 

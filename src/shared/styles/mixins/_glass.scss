@@ -3,15 +3,11 @@ $glass-fill-dense: rgba(255, 255, 255, 0.16);
 $glass-blur: 10px;
 $glass-blur-dense: 14px;
 
-@mixin glass($fill: $glass-fill, $blur: $glass-blur) {
+@mixin glass-border {
   & {
     position: relative;
     isolation: isolate;
-    background: $fill;
-    background-clip: padding-box;
     border: 1px solid transparent !important;
-    backdrop-filter: blur($blur);
-    -webkit-backdrop-filter: blur($blur);
   }
 
   &:hover,
@@ -41,6 +37,17 @@ $glass-blur-dense: 14px;
             mask-composite: exclude;
     pointer-events: none;
     z-index: 3;
+  }
+}
+
+@mixin glass($fill: $glass-fill, $blur: $glass-blur) {
+  @include glass-border;
+
+  & {
+    background: $fill;
+    background-clip: padding-box;
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
   }
 }
 

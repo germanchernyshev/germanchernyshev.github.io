@@ -65,19 +65,16 @@
     max-width: 720px;
     margin: 0 auto;
     border-radius: var(--radius-xl);
-    border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    @include glass-border;
   }
 
   &__text {
     @include flexbox(initial, initial, column, var(--space-6));
     padding: var(--space-6);
     border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     max-width: var(--content-max);
+    @include glass(rgba(255, 255, 255, 0.04));
   }
 }
 
@@ -134,16 +131,14 @@
   min-height: 32px;
   padding: 6px 12px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
   color: rgba(235, 235, 235, 0.9);
   font-size: clamp(12px, 1.15vw, 14px);
   line-height: 1.3;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+  @include glass(rgba(255, 255, 255, 0.04));
 
   @media (hover: hover) {
     &:hover {
-      border-color: rgba(255, 255, 255, 0.28);
       background: rgba(255, 255, 255, 0.1);
       color: var(--text-primary);
     }
