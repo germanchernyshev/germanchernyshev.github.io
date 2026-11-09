@@ -45,12 +45,7 @@
     }
 
     &--pulse .dragon-guide__hint {
-      animation: dragon-guide-pulse 1.8s ease-in-out infinite;
-    }
-
-    &--nudge .dragon-guide__hint {
-      animation: dragon-guide-nudge 0.75s ease-in-out 3;
-      color: rgba(255, 244, 196, 0.98);
+      animation: dragon-guide-pulse 2s ease-in-out 0.8s infinite;
     }
 
     &:hover,
@@ -103,12 +98,11 @@
     height: 26px;
     margin: 0;
     color: rgba(218, 211, 148, 0.82);
+    opacity: 0.55;
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
     pointer-events: none;
     user-select: none;
-    transition:
-      color 0.2s ease,
-      transform 0.2s ease;
+    transition: color 0.2s ease;
 
     svg {
       display: block;
@@ -221,33 +215,22 @@
 @keyframes dragon-guide-pulse {
   0%,
   100% {
-    opacity: 0.4;
+    opacity: 0.55;
+    color: rgba(218, 211, 148, 0.82);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
   }
 
   50% {
     opacity: 1;
-  }
-}
-
-@keyframes dragon-guide-nudge {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.14);
+    color: rgba(255, 244, 196, 1);
+    filter: drop-shadow(0 0 6px rgba(255, 236, 170, 0.55));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dragon-guide__trigger--pulse .dragon-guide__hint,
-  .dragon-guide__trigger--nudge .dragon-guide__hint {
+  .dragon-guide__trigger--pulse .dragon-guide__hint {
     animation: none;
     opacity: 1;
-    transform: none;
   }
 
   .dragon-guide__bubble {
