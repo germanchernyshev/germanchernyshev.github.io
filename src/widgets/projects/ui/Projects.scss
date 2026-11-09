@@ -199,25 +199,31 @@
     margin: 0;
     min-height: var(--touch-min);
     padding: var(--space-card-inner) clamp(1.1rem, 2.5vw, 1.5rem);
-    border: 0;
+    border: 0 !important;
     border-radius: var(--radius-xl);
-    background: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     color: var(--text-primary);
     text-align: left;
     cursor: pointer;
     font: inherit;
     font-size: inherit;
     transition: background-color 0.2s ease, color 0.2s ease;
+    isolation: auto;
+
+    &::before {
+      content: none !important;
+      display: none !important;
+    }
 
     &:hover,
     &:active {
       transform: none;
-      box-shadow: none;
-      border: 0;
-      background: rgba(255, 255, 255, 0.04);
+      box-shadow: none !important;
+      border: 0 !important;
+      background: rgba(255, 255, 255, 0.04) !important;
     }
 
     @include media(max, tablet) {

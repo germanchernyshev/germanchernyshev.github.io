@@ -67,24 +67,6 @@
     letter-spacing: -0.03em;
     color: var(--primary);
     line-height: 1.05;
-    text-shadow: 0 0 0 transparent;
-    transition: text-shadow 0.35s ease;
-
-    &--done {
-      text-shadow:
-        0 0 18px rgba(218, 211, 148, 0.55),
-        0 0 36px rgba(218, 211, 148, 0.28);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    &__value {
-      transition: none;
-
-      &--done {
-        text-shadow: none;
-      }
-    }
   }
 
   &__label-row {

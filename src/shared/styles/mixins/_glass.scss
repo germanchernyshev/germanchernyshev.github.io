@@ -7,12 +7,13 @@ $glass-blur-dense: 14px;
   & {
     position: relative;
     isolation: isolate;
-    border: 1px solid transparent !important;
+    border: 0 !important;
   }
 
   &:hover,
   &:active,
   &:focus-visible {
+    border: 0 !important;
     border-color: transparent !important;
   }
 
@@ -33,6 +34,9 @@ $glass-blur-dense: 14px;
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     pointer-events: none;
@@ -45,7 +49,6 @@ $glass-blur-dense: 14px;
 
   & {
     background: $fill;
-    background-clip: padding-box;
     backdrop-filter: blur($blur);
     -webkit-backdrop-filter: blur($blur);
   }

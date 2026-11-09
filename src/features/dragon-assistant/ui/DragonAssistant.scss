@@ -106,7 +106,9 @@
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
     pointer-events: none;
     user-select: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
 
     svg {
       display: block;
@@ -115,7 +117,6 @@
 
   &__bubble {
     pointer-events: auto;
-    position: absolute;
     top: calc(100% + var(--space-2));
     left: 50%;
     right: auto;
@@ -126,53 +127,15 @@
     gap: var(--space-3);
     width: min(240px, calc(100vw - 48px));
     padding: var(--space-3) var(--space-4);
-    border: 0;
     border-radius: var(--radius-lg);
-    isolation: isolate;
     overflow: hidden;
-    background: transparent;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     transform: translate3d(-50%, 0, 0);
     transform-origin: top center;
     animation: dragon-guide-reveal-center 0.35s ease-out both;
+    @include glass(rgba(28, 27, 25, 0.72), 12px);
 
-    &::after {
-      content: '';
+    & {
       position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: rgba(28, 27, 25, 0.72);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(
-        155deg,
-        rgba(255, 255, 255, 0.38) 0%,
-        rgba(255, 255, 255, 0.12) 24%,
-        rgba(255, 255, 255, 0.03) 50%,
-        rgba(255, 255, 255, 0.05) 74%,
-        rgba(255, 255, 255, 0.16) 100%
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    & > * {
-      position: relative;
-      z-index: 1;
     }
   }
 
