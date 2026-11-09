@@ -14,9 +14,7 @@ export default function CaseList() {
           key={caseEntry.id}
           caseEntry={caseEntry}
           isOpen={openId === caseEntry.id}
-          onToggle={() =>
-            setOpenId((current) => (current === caseEntry.id ? '' : caseEntry.id))
-          }
+          onToggle={() => setOpenId(caseEntry.id)}
         />
       ))}
     </div>

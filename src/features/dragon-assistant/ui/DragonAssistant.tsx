@@ -35,10 +35,14 @@ export default function DragonAssistant({
   }, [defaultOpen])
 
   const rootClass = ['dragon-guide', className].filter(Boolean).join(' ')
+  const skipReveal = defaultOpen
 
   return (
     <div className={rootClass}>
-      <div className="dragon-guide__mascot" data-aos="fade-up">
+      <div
+        className="dragon-guide__mascot"
+        {...(skipReveal ? {} : { 'data-aos': 'fade-up' })}
+      >
         <button
           type="button"
           className={`dragon-guide__trigger${isOpen ? '' : ' dragon-guide__trigger--pulse'}`}
