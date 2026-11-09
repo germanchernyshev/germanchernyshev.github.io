@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://webdrgn.github.io/web-dragon/sitemap.xml
+Sitemap: https://germanchernyshev.github.io/sitemap.xml
