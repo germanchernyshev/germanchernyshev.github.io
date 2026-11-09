@@ -208,7 +208,7 @@ export const en: DeepStringify<typeof ru> = {
     },
     tags: {
       leadership:
-        'Cross-functional team leadership · Full development cycle · Hiring · Onboarding · 1-on-1s · Mentorship · Engineer development · Performance feedback · Cross-team coordination · Clients & stakeholders',
+        'Cross-functional team leadership · Full development cycle · Hiring · Onboarding · 1-on-1s · Mentorship · Engineer development · Performance review · Cross-team coordination · Clients & stakeholders',
       architecture:
         'Technical strategy · Software architecture · System design · Tech debt management · Microservices · Microfrontends · FSD · Performance Optimization · OpenAPI · Code review · Release management',
       frontend:
