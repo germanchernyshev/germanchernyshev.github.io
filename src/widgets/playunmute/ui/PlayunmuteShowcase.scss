@@ -112,7 +112,9 @@
     font-size: clamp(12px, 1.15vw, 14px);
     line-height: 1.3;
     white-space: nowrap;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
     @include glass(rgba(255, 255, 255, 0.04));
 
     @media (hover: hover) {
@@ -141,7 +143,10 @@
     color: var(--text-primary);
     text-decoration: none;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
     @include glass-primary;
 
     &:hover {
@@ -168,8 +173,10 @@
     width: 100%;
     max-width: 420px;
     justify-self: center;
-    aspect-ratio: 1;
+    border: 0 !important;
     border-radius: var(--radius-lg);
+    overflow: visible;
+    background: transparent;
 
     @include media(min, tablet) {
       max-width: none;
@@ -177,21 +184,23 @@
     }
   }
 
-  &__preview-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: inherit;
-  }
-
+  &__preview-img,
   &__preview .progressive-image {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    border: 0 !important;
     border-radius: inherit;
+    overflow: visible;
+    background: transparent;
   }
 
   &__preview .progressive-image__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 0 !important;
     border-radius: inherit;
+    object-fit: contain;
   }
 }

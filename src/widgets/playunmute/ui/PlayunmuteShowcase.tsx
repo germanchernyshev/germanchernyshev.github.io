@@ -107,6 +107,7 @@ export default function PlayunmuteShowcase({
               height={800}
               className="product-showcase__preview-img"
               loading="lazy"
+              lockAspect={false}
             />
           </div>
         </div>
