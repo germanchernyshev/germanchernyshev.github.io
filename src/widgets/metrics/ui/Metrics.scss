@@ -13,7 +13,10 @@
   }
 
   &__lead {
-    max-width: var(--measure);
+    max-width: 28rem;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.45;
+    color: var(--text-primary);
   }
 
   &__grid {
@@ -24,7 +27,7 @@
     max-width: var(--content-wide);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: clamp(12px, 2.5vw, 20px);
+    gap: clamp(14px, 2.8vw, 22px);
 
     @include media(max, mobile) {
       grid-template-columns: 1fr;
@@ -33,7 +36,7 @@
   }
 
   &__card {
-    padding: var(--space-card-inner);
+    padding: clamp(1.35rem, 3vw, 1.85rem);
     border-radius: var(--radius-xl);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -41,7 +44,7 @@
     -webkit-backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     transition:
       transform 0.25s ease,
       border-color 0.25s ease,
@@ -50,8 +53,8 @@
     @media (hover: hover) {
       &:hover {
         transform: translateY(-3px);
-        border-color: rgba(218, 211, 148, 0.28);
-        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.07);
       }
     }
 
@@ -62,11 +65,29 @@
 
   &__value {
     font-family: var(--font-display), system-ui, sans-serif;
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: clamp(2.35rem, 5vw, 3.25rem);
     font-weight: 600;
     letter-spacing: -0.03em;
     color: var(--primary);
-    line-height: 1.1;
+    line-height: 1.05;
+    text-shadow: 0 0 0 transparent;
+    transition: text-shadow 0.35s ease;
+
+    &--done {
+      text-shadow:
+        0 0 18px rgba(218, 211, 148, 0.55),
+        0 0 36px rgba(218, 211, 148, 0.28);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__value {
+      transition: none;
+
+      &--done {
+        text-shadow: none;
+      }
+    }
   }
 
   &__label-row {

@@ -201,21 +201,22 @@ export const en: DeepStringify<typeof ru> = {
     lead: 'I pick tech for the task, the team, and the load. JavaScript, TypeScript, Vue, React, Node.js, PHP, PostgreSQL, Docker, CI/CD, WebSocket, Centrifugo. I’ve built design systems, pulled projects out of legacy, set up infrastructure and process. Language doesn’t matter — it has to work, scale, and not break.',
     groups: {
       leadership: 'Leadership & team',
-      architecture: 'Architecture',
-      core: 'Core stack',
-      platform: 'Platform & data',
-      process: 'Process',
+      architecture: 'Architecture & systems',
+      frontend: 'Frontend',
+      backend: 'Backend & data',
+      process: 'Infrastructure & process',
     },
     tags: {
       leadership:
-        'Engineering team leadership · Hiring · Mentorship · Stakeholder management · Technical strategy · Tech debt management · Code review · Release management',
+        'Engineering team leadership · Hiring · Mentorship · Stakeholder management',
       architecture:
-        'Software architecture · System design · Microservices · Microfrontends · FSD · Performance Optimization · OpenAPI · AI-first · Storybook · Design Systems',
-      core:
-        'JavaScript · TypeScript · Vue.js · Nuxt.js · React · Pinia · Vuex · Redux Toolkit · Vite · Webpack · SSR · Node.js',
-      platform:
-        'PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo · Docker · CI/CD · PHP',
-      process: 'AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
+        'Technical strategy · Software architecture · System design · Tech debt management · Microservices · Microfrontends · FSD · Performance Optimization · OpenAPI · Code review · Release management',
+      frontend:
+        'JavaScript · TypeScript · Vue.js · Nuxt.js · React · Pinia · Vuex · Redux Toolkit · Vite · Webpack · SSR · Storybook · Design Systems',
+      backend:
+        'Node.js · PHP · PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo',
+      process:
+        'Docker · CI/CD · AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
     },
   },
   footer: {

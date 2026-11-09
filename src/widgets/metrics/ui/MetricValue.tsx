@@ -89,6 +89,7 @@ export default function MetricValue({ value }: { value: string }) {
     root.textContent = formatMetric(parsed, 0)
 
     let frameId = 0
+    let glowTimer = 0
     let hasStarted = false
 
     const play = () => {
@@ -107,9 +108,14 @@ export default function MetricValue({ value }: { value: string }) {
 
         if (progress < 1) {
           frameId = window.requestAnimationFrame(tick)
-        } else {
-          root.textContent = value
+          return
         }
+
+        root.textContent = value
+        root.classList.add('metrics__value--done')
+        glowTimer = window.setTimeout(() => {
+          root.classList.remove('metrics__value--done')
+        }, 520)
       }
 
       frameId = window.requestAnimationFrame(tick)
@@ -130,6 +136,8 @@ export default function MetricValue({ value }: { value: string }) {
     return () => {
       observer.disconnect()
       window.cancelAnimationFrame(frameId)
+      window.clearTimeout(glowTimer)
+      root.classList.remove('metrics__value--done')
     }
   }, [value])
 

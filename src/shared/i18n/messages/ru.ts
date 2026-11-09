@@ -191,21 +191,22 @@ export const ru = {
     lead: 'Технологии выбираю под задачу, команду и нагрузку. Строил дизайн-системы, вытаскивал проекты из легаси, настраивал инфраструктуру и процессы. Не важно на чём — важно, чтобы работало, масштабировалось и не ломалось.',
     groups: {
       leadership: 'Лидерство и команда',
-      architecture: 'Архитектура',
-      core: 'Основной стек',
-      platform: 'Платформа и данные',
-      process: 'Процессы',
+      architecture: 'Архитектура и системы',
+      frontend: 'Frontend',
+      backend: 'Backend и данные',
+      process: 'Инфраструктура и процессы',
     },
     tags: {
       leadership:
-        'Управление командой разработки · Найм персонала · Менторство · Взаимодействие с заказчиками и стейкхолдерами · Техническая стратегия · Управление техническим долгом · Код-ревью · Управление релизами',
+        'Управление командой разработки · Найм персонала · Менторство · Взаимодействие с заказчиками и стейкхолдерами',
       architecture:
-        'Архитектура ПО · Проектирование систем · Микросервисы · Microfrontends · FSD · Performance Optimization · OpenAPI · AI-first · Storybook · Design Systems',
-      core:
-        'JavaScript · TypeScript · Vue.js · Nuxt.js · React · Pinia · Vuex · Redux Toolkit · Vite · Webpack · SSR · Node.js',
-      platform:
-        'PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo · Docker · CI/CD · PHP',
-      process: 'AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
+        'Техническая стратегия · Архитектура ПО · Проектирование систем · Управление техническим долгом · Микросервисы · Microfrontends · FSD · Performance Optimization · OpenAPI · Код-ревью · Управление релизами',
+      frontend:
+        'JavaScript · TypeScript · Vue.js · Nuxt.js · React · Pinia · Vuex · Redux Toolkit · Vite · Webpack · SSR · Storybook · Design Systems',
+      backend:
+        'Node.js · PHP · PostgreSQL · REST API · GraphQL · WebSocket · Centrifugo',
+      process:
+        'Docker · CI/CD · AI-first · Agent harness · Claude · Agile · Scrum · Kanban',
     },
   },
   footer: {

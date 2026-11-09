@@ -23,6 +23,9 @@ export default function Skill({ skill }: SkillProps) {
   const iconName = SKILL_ICON_BY_ID[skill.id] ?? 'laptop'
   const title = t(skill.titleKey)
   const tags = t(skill.descriptionKey)
+    .split('·')
+    .map(tag => tag.trim())
+    .filter(Boolean)
 
   return (
     <div
@@ -35,7 +38,13 @@ export default function Skill({ skill }: SkillProps) {
 
       <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
 
-      <p className="text-base text-gray-300 leading-relaxed">{tags}</p>
+      <ul className="skills__tags">
+        {tags.map(tag => (
+          <li key={tag} className="skills__tag">
+            {tag}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

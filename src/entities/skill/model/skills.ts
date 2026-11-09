@@ -16,14 +16,14 @@ export const skills: Skill[] = [
   {
     id: 3,
     image: './img/icons/6.png',
-    titleKey: 'skills.groups.core',
-    descriptionKey: 'skills.tags.core',
+    titleKey: 'skills.groups.frontend',
+    descriptionKey: 'skills.tags.frontend',
   },
   {
     id: 4,
     image: './img/icons/5.png',
-    titleKey: 'skills.groups.platform',
-    descriptionKey: 'skills.tags.platform',
+    titleKey: 'skills.groups.backend',
+    descriptionKey: 'skills.tags.backend',
   },
   {
     id: 5,
