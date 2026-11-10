@@ -3,6 +3,7 @@
 import React from 'react'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Card from '@/shared/ui/card'
 import SectionHeading from '@/shared/ui/section-heading'
 import DragonAssistant from '@/features/dragon-assistant'
 import { WEB_DRAGON_TIPS } from '@/shared/config'
@@ -51,7 +52,14 @@ export default function WhatRemains() {
 
       <ul className="what-remains__grid">
         {WHAT_REMAINS_KEYS.map((itemKey) => (
-          <li key={itemKey} data-aos="fade-up" className="what-remains__card">
+          <Card
+            key={itemKey}
+            as="li"
+            padding="padInner"
+            interactive
+            data-aos="fade-up"
+            className="what-remains__card"
+          >
             <div className="what-remains__title-row">
               <KitIcon
                 name={WHAT_REMAINS_ICONS[itemKey]}
@@ -65,7 +73,7 @@ export default function WhatRemains() {
             <p className="what-remains__detail">
               {t(`whatRemains.items.${itemKey}.detail`)}
             </p>
-          </li>
+          </Card>
         ))}
       </ul>
     </section>

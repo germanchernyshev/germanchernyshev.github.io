@@ -1,5 +1,4 @@
 @import 'mixins/media';
-@import 'mixins/glass';
 
 .playunmute {
   width: 100%;
@@ -8,10 +7,7 @@
 .product-showcase {
   position: relative;
   width: 100%;
-  padding: var(--space-card);
-  border-radius: var(--radius-xl);
   overflow: hidden;
-  @include glass;
 
   &__body {
     min-width: 0;
@@ -93,81 +89,6 @@
     font-size: clamp(15px, 1.45vw, 17px);
     line-height: 1.55;
     color: var(--text-secondary);
-  }
-
-  &__features {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    list-style: none;
-    width: 100%;
-  }
-
-  &__feature {
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 32px;
-    padding: 6px 12px;
-    gap: 6px;
-    border-radius: var(--radius-md);
-    color: rgba(235, 235, 235, 0.9);
-    font-size: clamp(12px, 1.15vw, 14px);
-    line-height: 1.3;
-    white-space: nowrap;
-    transition:
-      background 0.2s ease,
-      color 0.2s ease;
-    @include glass(rgba(255, 255, 255, 0.04));
-
-    @media (hover: hover) {
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--text-primary);
-      }
-    }
-  }
-
-  &__feature-icon {
-    flex-shrink: 0;
-    opacity: 0.92;
-  }
-
-  &__demo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-height: var(--touch-min);
-    padding: var(--cta-pad-y) var(--cta-pad-x);
-    border-radius: var(--radius-lg);
-    font-size: clamp(14px, 1.3vw, 16px);
-    font-weight: 600;
-    color: var(--text-primary);
-    text-decoration: none;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
-    transition:
-      transform 0.25s ease,
-      background 0.25s ease,
-      box-shadow 0.25s ease;
-    @include glass-primary;
-
-    &:hover {
-      color: var(--text-primary);
-      opacity: 1;
-      text-decoration: none;
-      text-decoration-color: transparent;
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.22);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38);
-    }
   }
 
   &__stack {

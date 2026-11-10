@@ -41,11 +41,8 @@
 
   &__nda {
     @include flexbox(center, center, column, var(--space-3));
-    padding: var(--space-card);
-    border-radius: var(--radius-xl);
     width: 100%;
     max-width: var(--content-max);
-    @include glass;
 
     p {
       margin: 0;
@@ -75,28 +72,8 @@
   }
 
   &__nda-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-height: var(--touch-min);
-    font-size: clamp(14px, 1.35vw, 16px);
-    font-weight: 600;
-    color: var(--text-primary);
-    text-decoration: none;
     border-radius: var(--radius-md);
     padding: 0 var(--space-3);
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    @include glass-ghost;
-
-    &:hover {
-      color: var(--text-primary);
-      text-decoration: none;
-      text-decoration-color: transparent;
-      opacity: 1;
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.08);
-    }
   }
 
   &__accordion-list {
@@ -160,17 +137,12 @@
 
 .case {
   width: 100%;
-  padding: var(--space-card);
-  border-radius: var(--radius-xl);
   transition: border-color 0.25s ease, background 0.25s ease;
-  @include glass;
 
   &--accordion {
-    padding: 0;
     overflow: hidden;
     opacity: 1;
     transform: none;
-    border-radius: var(--radius-xl);
 
     &:not(.case--open) .case__trigger {
       border-radius: var(--radius-xl);

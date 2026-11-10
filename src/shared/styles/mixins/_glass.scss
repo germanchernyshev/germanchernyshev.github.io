@@ -1,7 +1,12 @@
 $glass-fill: rgba(255, 255, 255, 0.05);
 $glass-fill-dense: rgba(255, 255, 255, 0.16);
-$glass-blur: 10px;
-$glass-blur-dense: 14px;
+$glass-blur: 7px;
+$glass-blur-dense: 9px;
+$glass-blur-mobile: 4px;
+$glass-blur-dense-mobile: 5px;
+$glass-fill-chrome: $glass-fill;
+$glass-blur-chrome: 8px;
+$glass-blur-chrome-mobile: 5px;
 
 @mixin glass-border {
   & {
@@ -44,20 +49,57 @@ $glass-blur-dense: 14px;
   }
 }
 
-@mixin glass($fill: $glass-fill, $blur: $glass-blur) {
+@mixin glass(
+  $fill: $glass-fill,
+  $blur: $glass-blur,
+  $blur-mobile: $glass-blur-mobile
+) {
   @include glass-border;
 
   & {
     background: $fill;
     backdrop-filter: blur($blur);
     -webkit-backdrop-filter: blur($blur);
+
+    @media (max-width: 767px) {
+      backdrop-filter: blur($blur-mobile);
+      -webkit-backdrop-filter: blur($blur-mobile);
+    }
+  }
+}
+
+@mixin glass-nested($fill: $glass-fill) {
+  @include glass-border;
+
+  & {
+    background: $fill;
   }
 }
 
 @mixin glass-primary {
-  @include glass($glass-fill-dense, $glass-blur-dense);
+  @include glass(
+    $glass-fill-dense,
+    $glass-blur-dense,
+    $glass-blur-dense-mobile
+  );
 }
 
 @mixin glass-ghost {
-  @include glass(transparent, $glass-blur);
+  @include glass(transparent, $glass-blur, $glass-blur-mobile);
+}
+
+@mixin glass-chrome {
+  @include glass(
+    $glass-fill-chrome,
+    $glass-blur-chrome,
+    $glass-blur-chrome-mobile
+  );
+}
+
+@mixin glass-nested-primary {
+  @include glass-nested($glass-fill-dense);
+}
+
+@mixin glass-nested-ghost {
+  @include glass-nested(transparent);
 }

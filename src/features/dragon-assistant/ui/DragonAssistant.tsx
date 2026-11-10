@@ -65,6 +65,7 @@ export default function DragonAssistant({
             height={80}
             className="dragon-guide__icon"
             lockAspect={false}
+            sizes="160px"
             aria-hidden
             loading="lazy"
           />

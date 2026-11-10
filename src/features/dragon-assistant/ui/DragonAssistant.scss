@@ -153,7 +153,7 @@
     box-shadow: none;
     cursor: pointer;
     transition: background 0.2s ease;
-    @include glass(rgba(255, 255, 255, 0.06));
+    @include glass-nested(rgba(255, 255, 255, 0.06));
 
     &:hover {
       transform: none;

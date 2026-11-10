@@ -23,46 +23,16 @@
     padding: var(--header-pad);
     border-radius: var(--radius-lg);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
-    @include glass;
+    @include glass-chrome;
   }
 
   &__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
     flex-shrink: 0;
-    height: var(--header-item-h);
-    min-height: var(--header-item-h);
-    min-width: var(--header-item-h);
-    padding: 0 var(--space-4);
     border-radius: var(--radius-md);
-    font-size: clamp(12px, 1.15vw, 13px);
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: transform 0.2s ease, background 0.2s ease;
-    @include glass-primary;
 
     &:hover {
-      text-decoration: none;
-      text-decoration-color: transparent;
-      color: var(--text-primary);
-      opacity: 1;
       transform: none;
-      background: rgba(255, 255, 255, 0.22);
     }
-
-    &--active {
-      color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  &__cta-icon {
-    flex-shrink: 0;
   }
 
   .nav {

@@ -3,6 +3,9 @@
 import React from 'react'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Button from '@/shared/ui/button'
+import Card from '@/shared/ui/card'
+import Tag, { TagList } from '@/shared/ui/tag'
 import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
@@ -41,7 +44,8 @@ export default function PlayunmuteShowcase({
       className="playunmute"
       aria-labelledby="playunmute-heading"
     >
-      <article
+      <Card
+        as="article"
         data-aos="fade-up"
         className={
           comingSoon
@@ -65,38 +69,43 @@ export default function PlayunmuteShowcase({
               </h2>
 
               {!comingSoon && (
-                <a
+                <Button
                   href={PLAYUNMUTE_DEMO}
                   target="_blank"
                   rel="noopener noreferrer"
+                  variant="nestedPrimary"
+                  size="md"
+                  elevated
                   className="product-showcase__demo"
                 >
                   <KitIcon
                     name="star"
                     size={KIT_ICON_MD}
+                    className="ui-button__icon"
                   />
                   {t('playunmute.tryDemo')}
-                </a>
+                </Button>
               )}
             </div>
 
             <p className="product-showcase__proof">{t('playunmute.proof1')}</p>
 
-            <ul className="product-showcase__features">
+            <TagList className="product-showcase__features">
               {PLAYUNMUTE_FEATURES.map(feature => (
-                <li
+                <Tag
                   key={feature.labelKey}
+                  as="li"
                   className="product-showcase__feature"
                 >
                   <KitIcon
                     name={feature.icon}
                     size={KIT_ICON_MD}
-                    className="product-showcase__feature-icon"
+                    className="ui-tag__icon"
                   />
                   <span>{t(feature.labelKey)}</span>
-                </li>
+                </Tag>
               ))}
-            </ul>
+            </TagList>
 
             <p className="product-showcase__stack">{PLAYUNMUTE_STACK}</p>
           </div>
@@ -110,6 +119,7 @@ export default function PlayunmuteShowcase({
               className="product-showcase__preview-img"
               loading="lazy"
               lockAspect={false}
+              sizes="(max-width: 767px) 92vw, 420px"
             />
           </div>
         </div>
@@ -124,7 +134,7 @@ export default function PlayunmuteShowcase({
             </p>
           </div>
         )}
-      </article>
+      </Card>
     </section>
   )
 }

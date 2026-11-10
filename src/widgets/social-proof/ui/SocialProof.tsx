@@ -2,6 +2,8 @@
 
 import React from 'react'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
+import Button from '@/shared/ui/button'
+import Card from '@/shared/ui/card'
 import SectionHeading from '@/shared/ui/section-heading'
 import DragonAssistant from '@/features/dragon-assistant'
 import { AUTHOR_GITHUB_ARTICLE, WEB_DRAGON_TIPS } from '@/shared/config'
@@ -28,21 +30,25 @@ export default function SocialProof() {
         />
       </header>
 
-      <article
+      <Card
+        as="article"
+        padding="none"
         data-aos="fade-up"
         className="social-proof__card"
       >
         <p className="social-proof__excerpt">{t('socialProof.excerpt')}</p>
-        <a
+        <Button
           href={AUTHOR_GITHUB_ARTICLE}
           target="_blank"
           rel="noopener noreferrer"
+          variant="nested"
+          size="md"
           className="social-proof__link"
         >
-          <KitIcon name="bookmark" size={KIT_ICON_MD} />
+          <KitIcon name="bookmark" size={KIT_ICON_MD} className="ui-button__icon" />
           {t('socialProof.readOnGithub')}
-        </a>
-      </article>
+        </Button>
+      </Card>
     </section>
   )
 }

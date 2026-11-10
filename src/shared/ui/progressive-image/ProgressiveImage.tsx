@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import Image from 'next/image'
 
 type ProgressiveImageProps = {
   src: string
@@ -13,6 +14,7 @@ type ProgressiveImageProps = {
   loading?: 'lazy' | 'eager'
   objectFit?: 'contain' | 'cover'
   lockAspect?: boolean
+  sizes?: string
   'aria-hidden'?: boolean | 'true' | 'false'
 }
 
@@ -27,54 +29,16 @@ export default function ProgressiveImage({
   loading,
   objectFit = 'contain',
   lockAspect = true,
+  sizes,
   ...rest
 }: ProgressiveImageProps) {
   const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    let cancelled = false
-    setReady(false)
-
-    const source = new window.Image()
-    source.decoding = 'async'
-    if (priority) {
-      source.fetchPriority = 'high'
-    }
-    source.src = src
-
-    const reveal = async () => {
-      try {
-        await source.decode()
-      } catch {
-        if (!source.complete) {
-          await new Promise<void>((resolve, reject) => {
-            source.onload = () => resolve()
-            source.onerror = () => reject(new Error('image load failed'))
-          })
-        }
-      }
-
-      if (!cancelled) {
-        setReady(true)
-      }
-    }
-
-    void reveal().catch(() => {
-      if (!cancelled) {
-        setReady(true)
-      }
-    })
-
-    return () => {
-      cancelled = true
-    }
-  }, [src, priority])
 
   const rootClass = [
     'progressive-image',
     lockAspect ? '' : 'progressive-image--auto',
     ready ? 'progressive-image--ready' : '',
-    className
+    className,
   ]
     .filter(Boolean)
     .join(' ')
@@ -86,21 +50,22 @@ export default function ProgressiveImage({
         {
           ...style,
           ...(lockAspect ? { aspectRatio: `${width} / ${height}` } : null),
-          '--progressive-fit': objectFit
+          '--progressive-fit': objectFit,
         } as React.CSSProperties
       }
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         className="progressive-image__img"
         src={src}
         alt={alt}
         width={width}
         height={height}
-        loading={priority ? 'eager' : (loading ?? 'lazy')}
-        decoding="async"
-        fetchPriority={priority ? 'high' : 'auto'}
+        priority={priority}
+        loading={priority ? undefined : (loading ?? 'lazy')}
+        sizes={sizes ?? `${width}px`}
         draggable={false}
+        onLoad={() => setReady(true)}
+        onError={() => setReady(true)}
         {...rest}
       />
     </span>

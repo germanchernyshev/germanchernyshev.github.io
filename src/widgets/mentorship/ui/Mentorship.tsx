@@ -3,6 +3,8 @@
 import React from 'react'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Button from '@/shared/ui/button'
+import Card from '@/shared/ui/card'
 import SectionHeading from '@/shared/ui/section-heading'
 import DragonAssistant from '@/features/dragon-assistant'
 import { AUTHOR_TELEGRAM, WEB_DRAGON_TIPS } from '@/shared/config'
@@ -46,8 +48,10 @@ export default function Mentorship() {
 
       <ul className="mentorship__grid">
         {MENTORSHIP_FORMATS.map((format) => (
-          <li
+          <Card
             key={format.formatKey}
+            as="li"
+            padding="padInner"
             data-aos="fade-up"
             className="mentorship__card"
           >
@@ -64,7 +68,7 @@ export default function Mentorship() {
                 {t(`mentorship.formats.${format.formatKey}.label`)}
               </div>
             </div>
-          </li>
+          </Card>
         ))}
       </ul>
 
@@ -74,15 +78,16 @@ export default function Mentorship() {
         className="mentorship__cta"
         data-aos="fade-up"
       >
-        <a
+        <Button
           href={AUTHOR_TELEGRAM}
           target="_blank"
           rel="noopener noreferrer"
-          className="mentorship__cta-link"
+          variant="primary"
+          size="lg"
         >
-          <KitIcon name="send" size={KIT_ICON_MD} className="mentorship__cta-icon" />
+          <KitIcon name="send" size={KIT_ICON_MD} className="ui-button__icon" />
           {t('mentorship.cta')}
-        </a>
+        </Button>
       </div>
     </section>
   )

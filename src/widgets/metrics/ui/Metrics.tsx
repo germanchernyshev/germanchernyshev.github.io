@@ -3,6 +3,7 @@
 import React from 'react'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Card from '@/shared/ui/card'
 import SectionHeading from '@/shared/ui/section-heading'
 import DragonAssistant from '@/features/dragon-assistant'
 import { WEB_DRAGON_TIPS } from '@/shared/config'
@@ -52,7 +53,14 @@ export default function Metrics() {
 
       <ul className="metrics__grid">
         {METRIC_KEYS.map((metricKey) => (
-          <li key={metricKey} data-aos="fade-up" className="metrics__card">
+          <Card
+            key={metricKey}
+            as="li"
+            padding="none"
+            interactive
+            data-aos="fade-up"
+            className="metrics__card"
+          >
             <MetricValue value={t(`metrics.items.${metricKey}.value`)} />
             <div className="metrics__label-row">
               <KitIcon
@@ -67,7 +75,7 @@ export default function Metrics() {
             <p className="metrics__context">
               {t(`metrics.items.${metricKey}.context`)}
             </p>
-          </li>
+          </Card>
         ))}
       </ul>
     </section>

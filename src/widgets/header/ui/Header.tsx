@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import KitIcon, { KIT_ICON_SM } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Button from '@/shared/ui/button'
 import ProgressiveImage from '@/shared/ui/progressive-image'
 import { AUTHOR_TELEGRAM } from '@/shared/config'
 import { publicAsset } from '@/shared/lib'
@@ -103,6 +104,7 @@ export default function Navbar() {
               width={80}
               height={80}
               className="nav-img"
+              sizes="28px"
               priority
             />
           </a>
@@ -125,17 +127,19 @@ export default function Navbar() {
           })}
         </nav>
 
-        <a
+        <Button
           href={AUTHOR_TELEGRAM}
           target="_blank"
           rel="noopener noreferrer"
+          variant="nestedPrimary"
+          size="sm"
           className="header__cta"
           aria-label={t('common.write')}
           title={t('common.write')}
         >
-          <KitIcon name="send" size={KIT_ICON_SM} className="header__cta-icon" />
+          <KitIcon name="send" size={KIT_ICON_SM} className="ui-button__icon" />
           <span className="header__cta-text">{t('common.write')}</span>
-        </a>
+        </Button>
       </div>
     </header>
   )

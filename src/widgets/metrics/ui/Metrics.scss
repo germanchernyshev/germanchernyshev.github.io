@@ -1,6 +1,5 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
-@import 'mixins/glass';
 
 .metrics {
   @include flexbox(center, center, column, var(--space-stack));
@@ -38,22 +37,9 @@
 
   &__card {
     padding: clamp(1.35rem, 3vw, 1.85rem);
-    border-radius: var(--radius-xl);
     display: flex;
     flex-direction: column;
     gap: 12px;
-    transition:
-      transform 0.25s ease,
-      border-color 0.25s ease,
-      background 0.25s ease;
-    @include glass;
-
-    @media (hover: hover) {
-      &:hover {
-        transform: translateY(-3px);
-        background: rgba(255, 255, 255, 0.07);
-      }
-    }
 
     &:last-child:nth-child(odd) {
       grid-column: 1 / -1;

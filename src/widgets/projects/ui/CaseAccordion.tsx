@@ -4,6 +4,7 @@ import React, { useId } from 'react'
 import type { Case } from '@/entities/case'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Card from '@/shared/ui/card'
 import { useTranslation } from 'react-i18next'
 
 const CASE_ICON_BY_ID: Record<string, KitIconName> = {
@@ -42,7 +43,9 @@ export default function CaseAccordion({
   const description = t(`projects.cases.${caseEntry.id}.description`)
 
   return (
-    <article
+    <Card
+      as="article"
+      padding="none"
       className={`case case--accordion${isOpen ? ' case--open' : ''}`}
     >
       <h3 className="case__heading">
@@ -93,6 +96,6 @@ export default function CaseAccordion({
           <p className="case__proof">{renderCaseText(description)}</p>
         </div>
       </div>
-    </article>
+    </Card>
   )
 }

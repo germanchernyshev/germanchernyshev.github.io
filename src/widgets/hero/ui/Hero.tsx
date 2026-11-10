@@ -4,6 +4,7 @@ import React from 'react'
 import { AUTHOR_PHOTO, AUTHOR_TELEGRAM, WEB_DRAGON_TIPS } from '@/shared/config'
 import DragonAssistant from '@/features/dragon-assistant'
 import KitIcon, { KIT_ICON_MD } from '@/shared/ui/kit-icon'
+import Button from '@/shared/ui/button'
 import ProgressiveImage from '@/shared/ui/progressive-image'
 import { publicAsset } from '@/shared/lib'
 import { useTranslation } from 'react-i18next'
@@ -22,6 +23,7 @@ export default function Hero() {
             height={160}
             className="hero__photo"
             objectFit="cover"
+            sizes="(max-width: 767px) 120px, 160px"
             priority
           />
           <div className="hero__identity">
@@ -47,24 +49,28 @@ export default function Hero() {
         </p>
 
         <div className="hero__actions hero__reveal hero__reveal--4">
-          <a
+          <Button
             href={AUTHOR_TELEGRAM}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero__cta hero__cta--primary"
-          >
-            <KitIcon name="send" size={KIT_ICON_MD} className="hero__cta-icon" />
-            {t('hero.discuss')}
-          </a>
-          <a
-            href={AUTHOR_TELEGRAM}
-            target="_blank"
-            rel="noopener noreferrer"
+            variant="primary"
+            size="md"
             className="hero__cta"
           >
-            <KitIcon name="wand" size={KIT_ICON_MD} className="hero__cta-icon" />
+            <KitIcon name="send" size={KIT_ICON_MD} className="ui-button__icon" />
+            {t('hero.discuss')}
+          </Button>
+          <Button
+            href={AUTHOR_TELEGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="ghost"
+            size="md"
+            className="hero__cta"
+          >
+            <KitIcon name="wand" size={KIT_ICON_MD} className="ui-button__icon" />
             {t('hero.mentorCta')}
-          </a>
+          </Button>
         </div>
 
         <p

@@ -1,6 +1,5 @@
 @import 'mixins/flexbox';
 @import 'mixins/media';
-@import 'mixins/glass';
 
 .social-proof {
   @include flexbox(center, center, column, var(--space-stack));
@@ -18,14 +17,12 @@
     width: 100%;
     max-width: var(--content-max);
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
-    border-radius: var(--radius-xl);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-4);
-    @include glass;
 
     @include media(min, mobile) {
       flex-direction: row;
@@ -47,31 +44,9 @@
   }
 
   &__link {
-    display: inline-flex;
-    align-items: center;
     flex: 0 0 auto;
-    gap: var(--space-2);
-    min-height: var(--touch-min);
-    font-size: clamp(14px, 1.35vw, 16px);
-    font-weight: 600;
-    color: var(--text-primary);
-    text-decoration: none;
     white-space: nowrap;
     border-radius: var(--radius-md);
     padding: 0 var(--space-4);
-    transition:
-      transform 0.25s ease,
-      border-color 0.25s ease,
-      background 0.25s ease;
-    @include glass;
-
-    &:hover {
-      color: var(--text-primary);
-      text-decoration: none;
-      text-decoration-color: transparent;
-      opacity: 1;
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.14);
-    }
   }
 }

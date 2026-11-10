@@ -3,6 +3,8 @@
 import React from 'react'
 import KitIcon, { KIT_ICON_LG } from '@/shared/ui/kit-icon'
 import type { KitIconName } from '@/shared/ui/kit-icon'
+import Card from '@/shared/ui/card'
+import Tag, { TagList } from '@/shared/ui/tag'
 import type { Skill as SkillType } from '@/shared/types'
 import { useTranslation } from 'react-i18next'
 
@@ -28,8 +30,9 @@ export default function Skill({ skill }: SkillProps) {
     .filter(Boolean)
 
   return (
-    <div
+    <Card
       data-aos="fade-up"
+      padding="padStack"
       className="skills__item"
     >
       <div className="skills__item-icon mb-4">
@@ -38,13 +41,13 @@ export default function Skill({ skill }: SkillProps) {
 
       <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
 
-      <div className="skills__tags">
+      <TagList className="skills__tags">
         {tags.map(tag => (
-          <span key={tag} className="skills__tag">
+          <Tag key={tag} as="li">
             {tag}
-          </span>
+          </Tag>
         ))}
-      </div>
-    </div>
+      </TagList>
+    </Card>
   )
 }

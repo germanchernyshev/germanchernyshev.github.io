@@ -79,11 +79,8 @@
 }
 
 .skills__item {
-  padding: var(--space-6);
-  border-radius: var(--radius-xl);
   height: 100%;
   transition: background 0.2s ease;
-  @include glass;
 
   @media (hover: hover) {
     &:hover {
@@ -109,39 +106,3 @@
   opacity: 0.92;
 }
 
-.skills__tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.skills__tag {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  width: fit-content;
-  max-width: 100%;
-  min-height: 32px;
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
-  color: rgba(235, 235, 235, 0.9);
-  font-size: clamp(12px, 1.15vw, 14px);
-  line-height: 1.3;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-  @include glass(rgba(255, 255, 255, 0.04));
-
-  @media (hover: hover) {
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-primary);
-    }
-  }
-}

@@ -4,9 +4,8 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
 import { I18nextProvider } from 'react-i18next'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
 import ErrorBoundary from '@/shared/ui/error-boundary'
+import { KitIconSprite } from '@/shared/ui/kit-icon'
 import { i18n, syncClientLocale } from '@/shared/i18n'
 import { AOS_DURATION_MS, FIREFLIES_COUNT } from '@/shared/config'
 import { roboto, displayFont } from '@/shared/lib/fonts'
@@ -26,19 +25,43 @@ export default function App({ Component, pageProps }: AppProps) {
       '(prefers-reduced-motion: reduce)'
     ).matches
 
-    Aos.init({
-      duration: prefersReducedMotion ? 0 : AOS_DURATION_MS,
-      disable: prefersReducedMotion,
-      once: true,
-      offset: 48,
-      easing: 'ease-out-cubic',
-    })
+    if (prefersReducedMotion) {
+      return
+    }
 
-    const refreshTimer = window.setTimeout(() => {
-      Aos.refreshHard()
-    }, 50)
+    let cancelled = false
+    let refreshTimer = 0
 
-    return () => window.clearTimeout(refreshTimer)
+    const bootAos = async () => {
+      const [{ default: Aos }] = await Promise.all([
+        import('aos'),
+        import('aos/dist/aos.css'),
+      ])
+
+      if (cancelled) {
+        return
+      }
+
+      Aos.init({
+        duration: AOS_DURATION_MS,
+        once: true,
+        offset: 48,
+        easing: 'ease-out-cubic',
+      })
+
+      refreshTimer = window.setTimeout(() => {
+        if (!cancelled) {
+          Aos.refreshHard()
+        }
+      }, 50)
+    }
+
+    void bootAos()
+
+    return () => {
+      cancelled = true
+      window.clearTimeout(refreshTimer)
+    }
   }, [])
 
   return (
@@ -49,8 +72,10 @@ export default function App({ Component, pageProps }: AppProps) {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=5"
           />
+          <link rel="preload" href="/icons-kit/sprite.svg" as="image" type="image/svg+xml" />
         </Head>
         <div className={`app ${roboto.className} ${displayFont.variable}`}>
+          <KitIconSprite />
           <PageAtmosphere firefliesCount={FIREFLIES_COUNT} />
           <Component {...pageProps} />
         </div>
