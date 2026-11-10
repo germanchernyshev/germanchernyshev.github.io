@@ -43,6 +43,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
   background-color: rgb(28, 28, 28);
+
+  &.lenis,
+  &.lenis-smooth {
+    scroll-behavior: auto;
+  }
 }
 
 @include media(max, mobile) {

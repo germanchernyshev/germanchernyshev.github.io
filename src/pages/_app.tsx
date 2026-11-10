@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import ErrorBoundary from '@/shared/ui/error-boundary'
 import { KitIconSprite } from '@/shared/ui/kit-icon'
+import SmoothScroll from '@/widgets/smooth-scroll'
 import { i18n, syncClientLocale } from '@/shared/i18n'
 import { AOS_DURATION_MS, FIREFLIES_COUNT } from '@/shared/config'
 import { roboto, displayFont } from '@/shared/lib/fonts'
@@ -74,11 +75,13 @@ export default function App({ Component, pageProps }: AppProps) {
           />
           <link rel="preload" href="/icons-kit/sprite.svg" as="image" type="image/svg+xml" />
         </Head>
-        <div className={`app ${roboto.className} ${displayFont.variable}`}>
-          <KitIconSprite />
-          <PageAtmosphere firefliesCount={FIREFLIES_COUNT} />
-          <Component {...pageProps} />
-        </div>
+        <SmoothScroll>
+          <div className={`app ${roboto.className} ${displayFont.variable}`}>
+            <KitIconSprite />
+            <PageAtmosphere firefliesCount={FIREFLIES_COUNT} />
+            <Component {...pageProps} />
+          </div>
+        </SmoothScroll>
       </ErrorBoundary>
     </I18nextProvider>
   )
