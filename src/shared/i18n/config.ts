@@ -1,10 +1,11 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { ru } from './messages/ru'
-import { en } from './messages/en'
 import { isLocale, type Locale } from './locales'
 
 export const SSR_LOCALE: Locale = 'ru'
+
+const loadedLocales = new Set<Locale>(['ru'])
 
 export function resolveClientLocale(): Locale {
   if (typeof window === 'undefined') {
@@ -24,15 +25,28 @@ export function resolveClientLocale(): Locale {
   return 'en'
 }
 
+async function ensureLocale(locale: Locale) {
+  if (loadedLocales.has(locale) || i18n.hasResourceBundle(locale, 'translation')) {
+    loadedLocales.add(locale)
+    return
+  }
+
+  if (locale === 'en') {
+    const { en } = await import('./messages/en')
+    i18n.addResourceBundle('en', 'translation', en, true, true)
+    loadedLocales.add('en')
+  }
+}
+
 void i18n.use(initReactI18next).init({
   resources: {
     ru: { translation: ru },
-    en: { translation: en },
   },
   lng: SSR_LOCALE,
-  fallbackLng: 'en',
+  fallbackLng: 'ru',
   supportedLngs: ['ru', 'en'],
   nonExplicitSupportedLngs: true,
+  partialBundledLanguages: true,
   load: 'languageOnly',
   interpolation: {
     escapeValue: false,
@@ -54,11 +68,18 @@ i18n.on('languageChanged', (language) => {
       : 'en'
 })
 
-export function syncClientLocale() {
+export async function syncClientLocale() {
   const nextLocale = resolveClientLocale()
 
+  try {
+    await ensureLocale(nextLocale)
+  } catch (error) {
+    console.error('Failed to load locale', nextLocale, error)
+    return
+  }
+
   if (nextLocale !== i18n.language) {
-    void i18n.changeLanguage(nextLocale)
+    await i18n.changeLanguage(nextLocale)
     return
   }
 

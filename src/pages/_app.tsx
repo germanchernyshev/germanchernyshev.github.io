@@ -18,7 +18,7 @@ const PageAtmosphere = dynamic(
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    syncClientLocale()
+    void syncClientLocale()
   }, [])
 
   useEffect(() => {
