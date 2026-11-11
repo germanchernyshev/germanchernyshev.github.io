@@ -68,6 +68,9 @@ export default function Mentorship() {
                 {t(`mentorship.formats.${format.formatKey}.label`)}
               </div>
             </div>
+            <p className="mentorship__context">
+              {t(`mentorship.formats.${format.formatKey}.context`)}
+            </p>
           </Card>
         ))}
       </ul>

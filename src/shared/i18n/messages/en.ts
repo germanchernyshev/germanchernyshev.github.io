@@ -48,7 +48,7 @@ export const en: DeepStringify<typeof ru> = {
       article:
         'We cut the OpenAPI busywork. Devs stopped copy-pasting. I helped tally the time saved. Dragons are not the villain — duplication is.',
       mentorship:
-        'Interview fear crushing your wings? We can prep you. Not my first century at this.',
+        'From zero to an offer — not alone. Code, interviews, confidence. Dragons nearby, panic gone.',
     },
   },
   hero: {
@@ -179,20 +179,26 @@ export const en: DeepStringify<typeof ru> = {
   },
   mentorship: {
     title: 'Mentorship',
-    lead: 'Afraid of interviews? I’ve run dozens. I know where even strong engineers fall. I’ll give you answer patterns for tricky questions. I’ll review your code and show where you fold.',
+    lead: 'Frontend and breaking into IT from scratch: I help you land a strong offer.',
     cta: 'Need a mentor? Ping me.',
     formats: {
       interviews: {
         accent: 'Interviews',
-        label: 'Prep for real middle+ questions',
+        label: 'Prep for real interview questions — intern to senior',
+        context:
+          'I know where people fall at every grade. Answer patterns and weak spots fixed before the HR call.',
       },
       review: {
         accent: 'Code review',
         label: 'From fear of comments to confident decisions',
+        context:
+          'We review your code and your arguments: how to defend decisions and not fold under review.',
       },
       playunmute: {
         accent: 'Playunmute',
-        label: 'My prep trainer',
+        label: 'Trainer built for the offer',
+        context:
+          'Interview simulation: pace, reaction, stage verdicts — practice before the real interview.',
       },
     },
   },
