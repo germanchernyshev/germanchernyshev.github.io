@@ -48,7 +48,7 @@ export const en: DeepStringify<typeof ru> = {
       article:
         'We cut the OpenAPI busywork. Devs stopped copy-pasting. I helped tally the time saved. Dragons are not the villain — duplication is.',
       mentorship:
-        'From zero to an offer — not alone. Code, interviews, confidence. Dragons nearby, panic gone.',
+        'Interview fear crushing your wings? We can prep you. Not my first century at this.',
     },
   },
   hero: {
