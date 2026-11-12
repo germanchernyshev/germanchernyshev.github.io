@@ -12,7 +12,7 @@ export const WEB_DRAGON_TIPS = {
   whatRemains: {
     tipId: 'what-remains',
     tipKey: 'dragon.tips.whatRemains',
-    icon: '/img/dragon3.png',
+    icon: '/img/dragon5.png',
   },
   cases: {
     tipId: 'cases',
