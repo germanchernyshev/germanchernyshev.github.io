@@ -180,6 +180,7 @@ export const en: DeepStringify<typeof ru> = {
   mentorship: {
     title: 'Mentorship',
     lead: 'Frontend and breaking into IT from scratch: I help you land a strong offer.',
+    channelCta: 'Telegram channel',
     cta: 'Need a mentor? Ping me.',
     formats: {
       interviews: {

@@ -88,6 +88,7 @@ export const SEO_KEYWORDS = [
 ];
 export const AUTHOR_GITHUB = 'https://github.com/germanchernyshev';
 export const AUTHOR_TELEGRAM = 'https://t.me/grmnche';
+export const MENTORSHIP_TELEGRAM_CHANNEL = 'https://t.me/+lm_dxedQd1Q3YjYy';
 export const AUTHOR_HABR_PROFILE = 'https://habr.com/ru/users/grmnche/';
 export const AUTHOR_HABR_ARTICLE =
   'https://habr.com/ru/articles/1053396/';

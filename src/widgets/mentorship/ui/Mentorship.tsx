@@ -7,7 +7,11 @@ import Button from '@/shared/ui/button'
 import Card from '@/shared/ui/card'
 import SectionHeading from '@/shared/ui/section-heading'
 import DragonAssistant from '@/features/dragon-assistant'
-import { AUTHOR_TELEGRAM, WEB_DRAGON_TIPS } from '@/shared/config'
+import {
+  AUTHOR_TELEGRAM,
+  MENTORSHIP_TELEGRAM_CHANNEL,
+  WEB_DRAGON_TIPS,
+} from '@/shared/config'
 import PlayunmuteShowcase from '@/widgets/playunmute'
 import { useTranslation } from 'react-i18next'
 
@@ -43,6 +47,21 @@ export default function Mentorship() {
           <p className="section-lead mentorship__lead">
             {t('mentorship.lead')}
           </p>
+        </div>
+        <div
+          className="mentorship__channel"
+          data-aos="fade-up"
+        >
+          <Button
+            href={MENTORSHIP_TELEGRAM_CHANNEL}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="lg"
+          >
+            <KitIcon name="send" size={KIT_ICON_MD} className="ui-button__icon" />
+            {t('mentorship.channelCta')}
+          </Button>
         </div>
       </header>
 

@@ -170,6 +170,7 @@ export const ru = {
   mentorship: {
     title: 'Менторство',
     lead: 'Frontend и вход в IT с нуля: помогаю трудоустроиться на высокий оффер.',
+    channelCta: 'Telegram-канал',
     cta: 'Нужен ментор? Напиши.',
     formats: {
       interviews: {
